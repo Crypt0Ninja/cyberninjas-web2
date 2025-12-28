@@ -12,16 +12,14 @@
     border: 1px solid rgba(139, 92, 246, 0.3);
     backdrop-filter: blur(20px);
 
-    /* Maximum visual dominance */
-    box-shadow: 0 0 80px rgba(139, 92, 246, 0.4),
-        0 20px 60px rgba(0, 0, 0, 0.5);
+    /* Subtle shadow without glow */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 
     transition: all 0.4s ease;
 }
 
 .hero-action-card:hover {
-    box-shadow: 0 0 100px rgba(139, 92, 246, 0.5),
-        0 20px 60px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     border-color: rgba(139, 92, 246, 0.5);
 }
 

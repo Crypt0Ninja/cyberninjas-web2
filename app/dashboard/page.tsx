@@ -49,19 +49,6 @@ export default function DashboardPage() {
                     streak: streak
                 }}
             />
-
-            {/* SECONDARY CONTEXT - Progress Overview (only for users with activity) */}
-            {stats && stats.total_activity_count > 0 && (
-                <ProgressOverview
-                    stats={{
-                        coursesCompleted: stats.courses_completed,
-                        totalCourses: Math.max(stats.courses_completed, 3), // Mock
-                        timeWatched: formatTimeWatched(),
-                        currentLevel: Math.floor(stats.total_activity_count / 10) + 1
-                    }}
-                    collapsed={true}
-                />
-            )}
         </div>
     )
 }

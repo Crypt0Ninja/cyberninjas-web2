@@ -63,7 +63,7 @@ export default function DashboardLayout({
             <BottomNav />
 
             {/* Main Content */}
-            <main className="lg:pl-72 min-h-screen pb-20 lg:pb-0">
+            <main className="lg:pl-60 min-h-screen pb-20 lg:pb-0">
                 <div className="p-4 sm:p-6 lg:p-10 pt-6 lg:pt-10">
                     {children}
                 </div>

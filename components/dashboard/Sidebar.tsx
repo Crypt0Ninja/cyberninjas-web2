@@ -11,6 +11,7 @@ interface NavItem {
     label: string
     href: string
     icon: React.ReactNode
+    openInNewTab?: boolean
 }
 
 const navItems: NavItem[] = [
@@ -23,6 +24,18 @@ const navItems: NavItem[] = [
                 <rect x="14" y="3" width="7" height="7" rx="1" />
                 <rect x="3" y="14" width="7" height="7" rx="1" />
                 <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
+        ),
+    },
+    {
+        label: 'Форум',
+        href: '/forum',
+        openInNewTab: true,
+        icon: (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                <line x1="9" y1="10" x2="15" y2="10" />
+                <line x1="12" y1="7" x2="12" y2="13" />
             </svg>
         ),
     },
@@ -180,7 +193,7 @@ export function Sidebar() {
             <motion.aside
                 className={clsx(
                     'hidden lg:flex',
-                    'fixed left-0 top-0 h-screen w-72 z-50',
+                    'fixed left-0 top-0 h-screen w-60 z-50',
                     'bg-white/[0.02] backdrop-blur-xl',
                     'border-r border-white/10',
                     'flex-col'
@@ -204,17 +217,20 @@ export function Sidebar() {
                 </div>
 
                 {/* Navigation */}
-                <nav className="flex-1 p-4 space-y-2">
+                <nav className="flex-1 p-4 space-y-1">
                     {/* Main Section */}
-                    {navItems.slice(0, 1).map((item) => {
+                    {/* Main Section - Преглед и Форум */}
+                    {navItems.slice(0, 2).map((item) => {
                         const active = isActive(item.href)
                         return (
                             <Link
                                 key={item.href}
                                 href={item.href}
+                                target={item.openInNewTab ? "_blank" : undefined}
+                                rel={item.openInNewTab ? "noopener noreferrer" : undefined}
                                 onClick={() => setIsOpen(false)}
                                 className={clsx(
-                                    'flex items-center gap-3 px-4 py-3 rounded-xl',
+                                    'flex items-center gap-3 px-4 py-1.5 rounded-xl text-sm',
                                     'transition-all duration-300',
                                     'group relative overflow-hidden',
                                     active
@@ -237,7 +253,7 @@ export function Sidebar() {
                                 )}>
                                     {item.icon}
                                 </span>
-                                <span className="font-medium">{item.label}</span>
+                                <span className="font-medium text-sm">{item.label}</span>
 
                                 {/* Hover glow */}
                                 <motion.div
@@ -255,7 +271,7 @@ export function Sidebar() {
 
                     {/* Learning Section */}
                     <div className="mb-2">
-                        {navItems.slice(1, 5).map((item) => {
+                        {navItems.slice(2, 6).map((item) => {
                             const active = isActive(item.href)
                             return (
                                 <Link
@@ -263,7 +279,7 @@ export function Sidebar() {
                                     href={item.href}
                                     onClick={() => setIsOpen(false)}
                                     className={clsx(
-                                        'flex items-center gap-3 px-4 py-3 rounded-xl',
+                                        'flex items-center gap-3 px-4 py-1.5 rounded-xl text-sm',
                                         'transition-all duration-300',
                                         'group relative overflow-hidden',
                                         active
@@ -305,7 +321,7 @@ export function Sidebar() {
 
                     {/* Additional Section */}
                     <div>
-                        {navItems.slice(5).map((item) => {
+                        {navItems.slice(6).map((item) => {
                             const active = isActive(item.href)
                             return (
                                 <Link
@@ -313,7 +329,7 @@ export function Sidebar() {
                                     href={item.href}
                                     onClick={() => setIsOpen(false)}
                                     className={clsx(
-                                        'flex items-center gap-3 px-4 py-3 rounded-xl',
+                                        'flex items-center gap-3 px-4 py-1.5 rounded-xl text-sm',
                                         'transition-all duration-300',
                                         'group relative overflow-hidden',
                                         active
@@ -356,7 +372,7 @@ export function Sidebar() {
                             href="/dashboard/admin"
                             onClick={() => setIsOpen(false)}
                             className={clsx(
-                                'flex items-center gap-3 px-4 py-3 rounded-xl',
+                                'flex items-center gap-3 px-4 py-1.5 rounded-xl text-sm',
                                 'transition-all duration-300',
                                 'group relative overflow-hidden',
                                 isActive('/dashboard/admin')
