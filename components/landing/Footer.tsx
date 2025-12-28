@@ -1,87 +1,143 @@
 "use client";
 
-import { Mail, FileText, Shield } from "lucide-react";
+import { Mail, Youtube, Instagram, Linkedin, Facebook } from "lucide-react";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
+    const footerLinks = {
+        platform: [
+            { label: "Курсове", href: "/dashboard/courses" },
+            { label: "Библиотека", href: "/dashboard/library" },
+            { label: "Ресурси", href: "/dashboard/resources" },
+            { label: "Общност", href: "/dashboard/community" },
+        ],
+        company: [
+            { label: "За нас", href: "#about" },
+            { label: "Блог", href: "/blog" },
+            { label: "Контакти", href: "/contact" },
+        ],
+        legal: [
+            { label: "Условия за ползване", href: "/terms" },
+            { label: "Поверителност", href: "/privacy" },
+        ],
+    };
+
+    const socialLinks = [
+        { icon: Youtube, href: "https://youtube.com/@cyberninjas", label: "YouTube" },
+        { icon: Instagram, href: "https://instagram.com/cyberninjas.bg", label: "Instagram" },
+        { icon: Facebook, href: "https://facebook.com/cyberninjas", label: "Facebook" },
+        { icon: Linkedin, href: "https://linkedin.com/company/cyberninjas", label: "LinkedIn" },
+    ];
+
     return (
-        <footer className="relative border-t border-white/10 py-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                    {/* Brand */}
-                    <div>
-                        <div className="flex items-center gap-2 mb-4">
+        <footer className="bg-[#09090b] border-t border-white/10">
+            {/* Main Footer Content */}
+            <div className="max-w-[1400px] mx-auto px-6 py-12 lg:py-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8">
+
+                    {/* Brand Column */}
+                    <div className="lg:col-span-2">
+                        <a href="/" className="flex items-center gap-3 mb-5">
                             <img
                                 src="/landingpage-logo.png"
-                                alt="CyberNinjas"
+                                alt="CyberNinjas Logo"
                                 className="h-10 w-auto"
                             />
-                            <span className="text-xl font-bold">
+                            <span className="text-xl font-bold tracking-tight">
                                 Cyber<span className="gradient-text">Ninjas</span>
                             </span>
-                        </div>
-                        <p className="text-gray-400 text-sm">
-                            Професионална AI промпт библиотека и образователна платформа.
+                        </a>
+                        <p className="text-gray-400 text-sm leading-relaxed mb-5 max-w-sm">
+                            Най-голямата образователна платформа за AI в България.
+                            Даваме AI-конкурентно предимство на хора и бизнеси.
                         </p>
+
+                        {/* Social Links */}
+                        <div className="flex items-center gap-2">
+                            {socialLinks.map((social) => (
+                                <a
+                                    key={social.label}
+                                    href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2.5 rounded-xl bg-white/5 hover:bg-purple-500/20 border border-white/10 hover:border-purple-500/50 transition-all group"
+                                    aria-label={social.label}
+                                >
+                                    <social.icon className="h-4 w-4 text-gray-400 group-hover:text-purple-400 transition-colors" />
+                                </a>
+                            ))}
+                        </div>
                     </div>
 
-                    {/* Quick Links */}
+                    {/* Platform Links */}
                     <div>
-                        <h4 className="font-semibold text-white mb-4">Линкове</h4>
-                        <ul className="space-y-2">
-                            <li>
-                                <a
-                                    href="/dashboard"
-                                    className="text-gray-400 hover:text-purple-400 transition-colors text-sm"
-                                >
-                                    Платформа
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/dashboard/courses"
-                                    className="text-gray-400 hover:text-purple-400 transition-colors text-sm"
-                                >
-                                    Академии
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/dashboard/resources"
-                                    className="text-gray-400 hover:text-purple-400 transition-colors text-sm"
-                                >
-                                    Ресурси
-                                </a>
-                            </li>
+                        <h4 className="text-white font-semibold mb-4">Платформа</h4>
+                        <ul className="space-y-2.5">
+                            {footerLinks.platform.map((link) => (
+                                <li key={link.href}>
+                                    <a
+                                        href={link.href}
+                                        className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+                                    >
+                                        {link.label}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Legal */}
+                    {/* Company Links */}
                     <div>
-                        <h4 className="font-semibold text-white mb-4">Информация</h4>
-                        <ul className="space-y-2">
-                            <li className="flex items-center gap-2 text-gray-400 text-sm">
-                                <Shield className="h-4 w-4" />
-                                Поверителност
-                            </li>
-                            <li className="flex items-center gap-2 text-gray-400 text-sm">
-                                <FileText className="h-4 w-4" />
-                                Условия
-                            </li>
-                            <li className="flex items-center gap-2 text-gray-400 text-sm">
-                                <Mail className="h-4 w-4" />
-                                Контакт
-                            </li>
+                        <h4 className="text-white font-semibold mb-4">Компания</h4>
+                        <ul className="space-y-2.5">
+                            {footerLinks.company.map((link) => (
+                                <li key={link.href}>
+                                    <a
+                                        href={link.href}
+                                        className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+                                    >
+                                        {link.label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Legal Links */}
+                    <div>
+                        <h4 className="text-white font-semibold mb-4">Правна информация</h4>
+                        <ul className="space-y-2.5">
+                            {footerLinks.legal.map((link) => (
+                                <li key={link.href}>
+                                    <a
+                                        href={link.href}
+                                        className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+                                    >
+                                        {link.label}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
+            </div>
 
-                {/* Copyright */}
-                <div className="pt-8 border-t border-white/10">
-                    <p className="text-center text-gray-500 text-sm">
-                        © {currentYear} CyberNinjas. Всички права запазени.
-                    </p>
+            {/* Bottom Bar */}
+            <div className="border-t border-white/10">
+                <div className="max-w-[1400px] mx-auto px-6 py-5">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+                        <p className="text-sm text-gray-500">
+                            © {currentYear} CyberNinjas. Всички права запазени.
+                        </p>
+                        <a
+                            href="mailto:contact@cyberninjas.bg"
+                            className="text-sm text-gray-500 hover:text-purple-400 transition-colors flex items-center gap-2"
+                        >
+                            <Mail className="h-4 w-4" />
+                            contact@cyberninjas.bg
+                        </a>
+                    </div>
                 </div>
             </div>
         </footer>

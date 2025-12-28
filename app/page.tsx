@@ -4,6 +4,7 @@ import NewHeader from "@/components/landing/NewHeader";
 import NewHero from "@/components/landing/NewHero";
 import BentoGrid1 from "@/components/landing/BentoGrid1";
 import BentoGrid2 from "@/components/landing/BentoGrid2";
+import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <NewHero />
       <BentoGrid1 />
       <BentoGrid2 />
+      <Footer />
     </main>
   );
 }
