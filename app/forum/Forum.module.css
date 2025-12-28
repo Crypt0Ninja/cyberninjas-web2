@@ -795,6 +795,68 @@
   font-size: 0.75rem;
 }
 
+/* Leaderboard Items */
+.leaderboardItem {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.leaderboardItem:last-child {
+  border-bottom: none;
+}
+
+.leaderboardRank {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #A78BFA;
+  min-width: 24px;
+}
+
+.leaderboardAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7C3AED, #8B5CF6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.leaderboardAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.leaderboardAvatar span {
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.leaderboardName {
+  flex: 1;
+  font-size: 0.8125rem;
+  color: #E4E4E7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.leaderboardPoints {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #A78BFA;
+  background: rgba(139, 92, 246, 0.1);
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+}
+
 /* Quick Links */
 .quickLinks {
   display: flex;
@@ -818,6 +880,19 @@
 .quickLinks a:hover {
   background: rgba(139, 92, 246, 0.1);
   color: #C084FC;
+}
+
+/* Primary Quick Link - highlighted */
+.primaryQuickLink {
+  background: rgba(139, 92, 246, 0.15) !important;
+  color: #A78BFA !important;
+  font-weight: 500;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.primaryQuickLink:hover {
+  background: rgba(139, 92, 246, 0.25) !important;
+  border-color: rgba(139, 92, 246, 0.4);
 }
 
 /* Loading States */

@@ -107,6 +107,7 @@ export default function ForumPage() {
     const [searchResults, setSearchResults] = useState<ForumTopic[]>([])
     const [isSearching, setIsSearching] = useState(false)
     const [showSearch, setShowSearch] = useState(false)
+    const [topContributors, setTopContributors] = useState<{ user_id: string, name: string, avatar_url: string | null, points: number }[]>([])
     const observerRef = useRef<IntersectionObserver | null>(null)
     const loadMoreRef = useRef<HTMLDivElement>(null)
     const searchInputRef = useRef<HTMLInputElement>(null)
@@ -155,6 +156,22 @@ export default function ForumPage() {
             }
         }
         fetchCategories()
+    }, [])
+
+    // Fetch top contributors
+    useEffect(() => {
+        async function fetchTopContributors() {
+            try {
+                const res = await fetch('/api/forum/top-contributors?limit=5')
+                const data = await res.json()
+                if (data.contributors) {
+                    setTopContributors(data.contributors)
+                }
+            } catch (error) {
+                console.error('Error fetching top contributors:', error)
+            }
+        }
+        fetchTopContributors()
     }, [])
 
     // Fetch topics
@@ -556,10 +573,27 @@ export default function ForumPage() {
                             Топ контрибутори
                         </h3>
                         <div className={styles.leaderboard}>
-                            <div className={styles.leaderboardEmpty}>
-                                <p>Бъди първият!</p>
-                                <span>Помогни на общността и се качи тук</span>
-                            </div>
+                            {topContributors.length > 0 ? (
+                                topContributors.map((contributor, index) => (
+                                    <div key={contributor.user_id} className={styles.leaderboardItem}>
+                                        <span className={styles.leaderboardRank}>#{index + 1}</span>
+                                        <div className={styles.leaderboardAvatar}>
+                                            {contributor.avatar_url ? (
+                                                <img src={contributor.avatar_url} alt={contributor.name} />
+                                            ) : (
+                                                <span>{contributor.name.charAt(0).toUpperCase()}</span>
+                                            )}
+                                        </div>
+                                        <span className={styles.leaderboardName}>{contributor.name}</span>
+                                        <span className={styles.leaderboardPoints}>{contributor.points} т.</span>
+                                    </div>
+                                ))
+                            ) : (
+                                <div className={styles.leaderboardEmpty}>
+                                    <p>Бъди първият!</p>
+                                    <span>Помогни на общността и се качи тук</span>
+                                </div>
+                            )}
                         </div>
                     </div>
 
@@ -570,13 +604,16 @@ export default function ForumPage() {
                             Бързи връзки
                         </h3>
                         <div className={styles.quickLinks}>
+                            <Link href="/dashboard" className={styles.primaryQuickLink}>
+                                <Rocket size={16} /> ← Обратно в платформата
+                            </Link>
                             <Link href="/forum/topic/rules">
                                 <FileText size={16} /> Правила
                             </Link>
                             <Link href="/forum/topic/how-to-ask">
                                 <HelpCircle size={16} /> Как да питам
                             </Link>
-                            <Link href="/dashboard">
+                            <Link href="/dashboard/courses">
                                 <GraduationCap size={16} /> Към курсовете
                             </Link>
                         </div>

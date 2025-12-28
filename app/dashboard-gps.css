@@ -43,9 +43,8 @@
     text-decoration: none;
     transition: all 0.3s ease;
 
-    /* Intense glow for attention */
-    box-shadow: 0 0 60px rgba(139, 92, 246, 0.6),
-        0 10px 30px rgba(139, 92, 246, 0.3);
+    /* Subtle shadow without glow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
     /* Ensure accessibility */
     min-height: 56px;
@@ -53,8 +52,7 @@
 
 .primary-cta:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 0 80px rgba(139, 92, 246, 0.8),
-        0 15px 40px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .primary-cta:active {

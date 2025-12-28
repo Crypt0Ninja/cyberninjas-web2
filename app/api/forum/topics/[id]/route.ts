@@ -123,6 +123,17 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
             incrementViewCount(supabase, (topic as { id: string }).id, currentUserId, request)
         }
 
+        // Check if user is platform admin
+        let isAdmin = false
+        if (currentUserId) {
+            const { data: profileData } = await supabase
+                .from('profiles')
+                .select('role')
+                .eq('id', currentUserId)
+                .single()
+            isAdmin = profileData?.role === 'admin'
+        }
+
         // Transform response
         const response = {
             topic: {
@@ -146,9 +157,9 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
                 canEditWiki: currentUserId && calculateTrustLevel(
                     levelMap.get(currentUserId) || 1
                 ) >= 3 && topic.wiki_mode,
-                canModerate: currentUserId && calculateTrustLevel(
+                canModerate: isAdmin || (currentUserId && calculateTrustLevel(
                     levelMap.get(currentUserId) || 1
-                ) >= 4
+                ) >= 4)
             }
         }
 
@@ -203,9 +214,17 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
 
         const trustLevel = calculateTrustLevel(userLevel?.level || 1)
 
+        // Check if user is platform admin
+        const { data: profileData } = await supabase
+            .from('profiles')
+            .select('role')
+            .eq('id', userId)
+            .single()
+        const isAdmin = profileData?.role === 'admin'
+
         // Determine what can be updated
         const isAuthor = userId === topic.author_id
-        const canModerate = trustLevel >= 4
+        const canModerate = isAdmin || trustLevel >= 4
         const canEditWiki = trustLevel >= 3 && topic.wiki_mode
 
         const updates: Record<string, unknown> = {}
@@ -266,6 +285,71 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
         return NextResponse.json({ topic: updatedTopic })
     } catch (error) {
         console.error('Update topic error:', error)
+        return NextResponse.json(
+            { error: 'Internal server error' },
+            { status: 500 }
+        )
+    }
+}
+
+// DELETE /api/forum/topics/[id] - Delete topic (admin/moderator only)
+export async function DELETE(request: NextRequest, { params }: RouteParams) {
+    try {
+        const { id } = await params
+
+        // Authenticate via token
+        const { supabase, user, error: tokenError } = await createSupabaseWithToken(request)
+
+        if (tokenError || !supabase || !user) {
+            return NextResponse.json(
+                { error: 'Authentication required' },
+                { status: 401 }
+            )
+        }
+
+        const userId = user.id
+
+        // Get user's trust level and role
+        const { data: userLevel } = await supabase
+            .from('user_levels')
+            .select('level')
+            .eq('user_id', userId)
+            .single()
+
+        const { data: profileData } = await supabase
+            .from('profiles')
+            .select('role')
+            .eq('id', userId)
+            .single()
+
+        const trustLevel = calculateTrustLevel(userLevel?.level || 1)
+        const isAdmin = profileData?.role === 'admin'
+        const canModerate = isAdmin || trustLevel >= 4
+
+        if (!canModerate) {
+            return NextResponse.json(
+                { error: 'Insufficient permissions to delete topic' },
+                { status: 403 }
+            )
+        }
+
+        // Delete topic (cascade will handle posts, reactions, etc.)
+        const { error: deleteError } = await supabase
+            .from('forum_topics')
+            .delete()
+            .eq('id', id)
+
+        if (deleteError) {
+            console.error('Error deleting topic:', deleteError)
+            return NextResponse.json(
+                { error: 'Failed to delete topic' },
+                { status: 500 }
+            )
+        }
+
+        return NextResponse.json({ success: true, message: 'Topic deleted' })
+    } catch (error) {
+        console.error('Delete topic error:', error)
         return NextResponse.json(
             { error: 'Internal server error' },
             { status: 500 }

@@ -887,6 +887,101 @@
 }
 
 /* ========================= */
+/* MODERATION MENU          */
+/* ========================= */
+.modMenuWrapper {
+    position: relative;
+    margin-left: 0.5rem;
+}
+
+.modMenuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #71717A;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modMenuButton:hover {
+    background: rgba(139, 92, 246, 0.1);
+    border-color: rgba(139, 92, 246, 0.3);
+    color: #A78BFA;
+}
+
+.modMenuButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.modDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    min-width: 180px;
+    background: #18181B;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 0.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.modDropdown button {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: #A1A1AA;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modDropdown button:hover {
+    background: rgba(139, 92, 246, 0.15);
+    color: #C084FC;
+}
+
+.modDropdown button svg {
+    flex-shrink: 0;
+}
+
+.dangerAction:hover {
+    background: rgba(239, 68, 68, 0.15) !important;
+    color: #F87171 !important;
+}
+
+/* Delete post button */
+.deletePostBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.625rem;
+    background: transparent;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 6px;
+    color: #F87171;
+    font-size: 0.8125rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.deletePostBtn:hover {
+    background: rgba(239, 68, 68, 0.15);
+}
+
+/* ========================= */
 /* LIGHT MODE THEME STYLES */
 /* ========================= */
 .container[data-theme="light"] {

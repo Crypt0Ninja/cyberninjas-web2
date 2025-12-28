@@ -5,7 +5,8 @@ import Link from 'next/link'
 import { useAuth } from '@/contexts/AuthContext'
 import type { ForumTopic, ForumPost, ReactionType, TrustLevel } from '@/lib/forum-types'
 import { TRUST_LEVEL_NAMES, TRUST_LEVEL_ICONS, REACTION_EMOJIS, calculateTrustLevel } from '@/lib/forum-types'
-import { Sun, Moon, ArrowLeft } from 'lucide-react'
+import { Sun, Moon, ArrowLeft, MoreVertical, Pin, Lock, Unlock, Trash2, PinOff } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import styles from './TopicDetail.module.css'
 
 interface TopicPageProps {
@@ -35,12 +36,16 @@ export default function TopicPage({ params }: TopicPageProps) {
     const [replyContent, setReplyContent] = useState('')
     const [submitting, setSubmitting] = useState(false)
     const [showReplyForm, setShowReplyForm] = useState(false)
+    const [showModMenu, setShowModMenu] = useState(false)
+    const [moderating, setModerating] = useState(false)
+    const router = useRouter()
 
     // Use ref to track initial load - prevents React Strict Mode double execution
     const initialLoadDoneRef = useRef(false)
     const viewCountedRef = useRef(false)
+    const authFetchDoneRef = useRef(false)
 
-    // Fetch topic data - initial load (counts view)
+    // Fetch topic data - include auth if available for instant permissions
     useEffect(() => {
         if (initialLoadDoneRef.current) return
         initialLoadDoneRef.current = true
@@ -48,9 +53,16 @@ export default function TopicPage({ params }: TopicPageProps) {
         async function fetchTopic() {
             try {
                 setLoading(true)
-                // First request counts view (no skipViewCount)
                 const skipView = viewCountedRef.current ? '?skipViewCount=true' : ''
-                const res = await fetch(`/api/forum/topics/${slug}${skipView}`)
+
+                // Include auth token in initial request if available
+                const headers: Record<string, string> = {}
+                if (session?.access_token) {
+                    headers['Authorization'] = `Bearer ${session.access_token}`
+                    authFetchDoneRef.current = true // Mark auth fetch as done
+                }
+
+                const res = await fetch(`/api/forum/topics/${slug}${skipView}`, { headers })
                 viewCountedRef.current = true
 
                 if (!res.ok) {
@@ -66,12 +78,13 @@ export default function TopicPage({ params }: TopicPageProps) {
             }
         }
         fetchTopic()
-    }, [slug])
+    }, [slug, session?.access_token])
 
-    // Refetch with auth to update permissions (no view increment on server)
+    // Only refetch with auth if initial load was done without auth and session became available later
     useEffect(() => {
-        // Only refetch after initial load is complete and we have a session
-        if (!data || !session?.access_token) return
+        // Skip if auth fetch was already done OR no session OR no data yet
+        if (authFetchDoneRef.current || !session?.access_token || !data) return
+        authFetchDoneRef.current = true
 
         async function refetchWithAuth() {
             try {
@@ -86,7 +99,7 @@ export default function TopicPage({ params }: TopicPageProps) {
             }
         }
         refetchWithAuth()
-    }, [slug, session]) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [slug, session?.access_token, data])
 
     // Theme state
     const [theme, setTheme] = useState<'light' | 'dark'>('dark')
@@ -190,6 +203,99 @@ export default function TopicPage({ params }: TopicPageProps) {
         }
     }
 
+    // Moderation actions
+    const handleModAction = async (action: 'pin' | 'unpin' | 'lock' | 'unlock' | 'delete') => {
+        if (!session?.access_token || moderating) return
+        setModerating(true)
+        setShowModMenu(false)
+
+        try {
+            const headers: Record<string, string> = {
+                'Authorization': `Bearer ${session.access_token}`,
+                'Content-Type': 'application/json'
+            }
+
+            if (action === 'delete') {
+                if (!confirm('Сигурни ли сте, че искате да изтриете тази тема? Това действие е необратимо.')) {
+                    setModerating(false)
+                    return
+                }
+
+                const res = await fetch(`/api/forum/topics/${data?.topic.id}`, {
+                    method: 'DELETE',
+                    headers
+                })
+
+                if (!res.ok) {
+                    const result = await res.json()
+                    throw new Error(result.error || 'Грешка при изтриване')
+                }
+
+                // Redirect to forum after deletion
+                router.push('/forum')
+                return
+            }
+
+            // PATCH actions (pin, lock)
+            const updates: Record<string, boolean> = {}
+            if (action === 'pin') updates.is_pinned = true
+            if (action === 'unpin') updates.is_pinned = false
+            if (action === 'lock') updates.is_locked = true
+            if (action === 'unlock') updates.is_locked = false
+
+            const res = await fetch(`/api/forum/topics/${data?.topic.id}`, {
+                method: 'PATCH',
+                headers,
+                body: JSON.stringify(updates)
+            })
+
+            if (!res.ok) {
+                const result = await res.json()
+                throw new Error(result.error || 'Грешка при обновяване')
+            }
+
+            // Refresh data
+            const refreshRes = await fetch(`/api/forum/topics/${slug}?skipViewCount=true`, { headers })
+            if (refreshRes.ok) {
+                const refreshData = await refreshRes.json()
+                setData(refreshData)
+            }
+        } catch (err) {
+            alert(err instanceof Error ? err.message : 'Грешка')
+        } finally {
+            setModerating(false)
+        }
+    }
+
+    // Delete post
+    const handleDeletePost = async (postId: string) => {
+        if (!session?.access_token) return
+
+        if (!confirm('Сигурни ли сте, че искате да изтриете този коментар?')) {
+            return
+        }
+
+        try {
+            const res = await fetch(`/api/forum/posts/${postId}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${session.access_token}` }
+            })
+
+            if (!res.ok) {
+                const result = await res.json()
+                throw new Error(result.error || 'Грешка при изтриване')
+            }
+
+            // Remove post from local state
+            setData(prev => prev ? {
+                ...prev,
+                posts: prev.posts.filter(p => p.id !== postId)
+            } : null)
+        } catch (err) {
+            alert(err instanceof Error ? err.message : 'Грешка')
+        }
+    }
+
     if (loading) {
         return (
             <div className={styles.loadingContainer}>
@@ -213,6 +319,11 @@ export default function TopicPage({ params }: TopicPageProps) {
     }
 
     const { topic, posts, permissions } = data
+
+    // Instant admin check from AuthContext - no need to wait for API
+    const isAdmin = profile?.role === 'admin'
+    // Merge API permissions with frontend admin check for instant UI
+    const canModerate = permissions.canModerate || isAdmin
 
     return (
         <div className={styles.container} data-theme={theme}>
@@ -283,6 +394,36 @@ export default function TopicPage({ params }: TopicPageProps) {
                             </time>
                             <span className={styles.metaSeparator}>·</span>
                             <span className={styles.viewCount}>👁 {topic.views_count}</span>
+
+                            {/* Moderation Menu */}
+                            {canModerate && (
+                                <div className={styles.modMenuWrapper}>
+                                    <button
+                                        className={styles.modMenuButton}
+                                        onClick={() => setShowModMenu(!showModMenu)}
+                                        disabled={moderating}
+                                    >
+                                        <MoreVertical size={18} />
+                                    </button>
+
+                                    {showModMenu && (
+                                        <div className={styles.modDropdown}>
+                                            <button onClick={() => handleModAction(topic.is_pinned ? 'unpin' : 'pin')}>
+                                                {topic.is_pinned ? <PinOff size={16} /> : <Pin size={16} />}
+                                                {topic.is_pinned ? 'Откачи' : 'Закачи'}
+                                            </button>
+                                            <button onClick={() => handleModAction(topic.is_locked ? 'unlock' : 'lock')}>
+                                                {topic.is_locked ? <Unlock size={16} /> : <Lock size={16} />}
+                                                {topic.is_locked ? 'Отключи' : 'Заключи'}
+                                            </button>
+                                            <button className={styles.dangerAction} onClick={() => handleModAction('delete')}>
+                                                <Trash2 size={16} />
+                                                Изтрий темата
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
                         </div>
                     </header>
 
@@ -337,6 +478,8 @@ export default function TopicPage({ params }: TopicPageProps) {
                                         post={post}
                                         canMarkSolution={permissions.canMarkSolution && !topic.is_solved}
                                         onMarkSolution={() => handleMarkSolution(post.id)}
+                                        canModerate={canModerate}
+                                        onDeletePost={() => handleDeletePost(post.id)}
                                         accessToken={session?.access_token}
                                     />
                                 ))}
@@ -344,8 +487,8 @@ export default function TopicPage({ params }: TopicPageProps) {
                         </section>
                     )}
 
-                    {/* Reply Form */}
-                    {permissions.canReply ? (
+                    {/* Reply Form - Show immediately for logged-in users */}
+                    {user && !topic.is_locked ? (
                         <section className={styles.replySection}>
                             {showReplyForm ? (
                                 <form onSubmit={handleSubmitReply} className={styles.replyForm}>
@@ -524,11 +667,15 @@ function PostCard({
     post,
     canMarkSolution,
     onMarkSolution,
+    canModerate,
+    onDeletePost,
     accessToken
 }: {
     post: ForumPost
     canMarkSolution: boolean
     onMarkSolution: () => void
+    canModerate?: boolean
+    onDeletePost?: () => void
     accessToken?: string | null
 }) {
     const trustLevel = calculateTrustLevel(post.author_level || 1)
@@ -575,6 +722,16 @@ function PostCard({
                         onClick={onMarkSolution}
                     >
                         ✅ Маркирай като решение
+                    </button>
+                )}
+
+                {canModerate && onDeletePost && (
+                    <button
+                        className={styles.deletePostBtn}
+                        onClick={onDeletePost}
+                    >
+                        <Trash2 size={14} />
+                        Изтрий
                     </button>
                 )}
             </div>
