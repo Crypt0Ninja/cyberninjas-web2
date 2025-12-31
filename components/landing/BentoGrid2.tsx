@@ -29,16 +29,18 @@ export default function BentoGrid2() {
                             <source src="/videos/Landing2.webm" type="video/webm" />
                         </video>
                         {/* Subtle overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-transparent" />
+
                     </BentoCard>
 
                     {/* Cells 2+3: "Стани експерт за един ден" */}
                     <BentoCard className="md:col-span-2 md:row-span-1 relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-fuchsia-600/10 to-purple-600/20" />
+                        {/* White base layer for clean yellow */}
+
+
                         <div className="relative z-10 p-8 h-full flex flex-col justify-center">
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500/30 to-fuchsia-500/30">
-                                    <Zap className="h-8 w-8 text-purple-300" />
+                                <div className="p-3 rounded-xl bg-gradient-to-br from-accent-yellow/20 to-accent-yellow-hover/20">
+                                    <Zap className="h-8 w-8 text-accent-yellow" />
                                 </div>
                                 <h3 className="text-3xl lg:text-4xl font-bold text-white">
                                     Стани експерт за един ден
@@ -47,7 +49,7 @@ export default function BentoGrid2() {
                             <div className="space-y-4">
                                 {expertPoints.map((point, i) => (
                                     <div key={i} className="flex items-start gap-3">
-                                        <CheckCircle className="h-6 w-6 text-purple-400 flex-shrink-0 mt-0.5" />
+                                        <CheckCircle className="h-6 w-6 text-accent-yellow flex-shrink-0 mt-0.5" />
                                         <p className="text-lg text-gray-200">{point}</p>
                                     </div>
                                 ))}
@@ -67,14 +69,16 @@ export default function BentoGrid2() {
                             >
                                 <source src="/videos/Landing3.webm" type="video/webm" />
                             </video>
-                            <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-900/30 to-transparent" />
+
                         </div>
                     </BentoCard>
 
                     {/* Cell 5: "СЧУПИ БАРИЕРИТЕ" - with glitch effect */}
                     <BentoCard className="relative overflow-hidden min-h-[200px] md:min-h-0 md:row-span-1 md:col-span-1 group cursor-pointer">
                         {/* Animated gradient background */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-600/40 via-purple-600/30 to-fuchsia-600/40 group-hover:from-fuchsia-500/60 group-hover:via-purple-500/50 group-hover:to-fuchsia-500/60 transition-all duration-300" />
+                        {/* White base layer for clean yellow */}
+
+
 
                         {/* Crack lines overlay */}
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -92,14 +96,14 @@ export default function BentoGrid2() {
                                 <h3 className="text-[44px] lg:text-[56px] font-black text-white text-center leading-tight tracking-tight relative">
                                     {/* Main text */}
                                     <span className="relative z-10 group-hover:animate-[shake_0.5s_ease-in-out]">
-                                        СЧУПИ<br />БАРИЕРИТЕ
+                                        Счупи<br />Лимитациите
                                     </span>
                                     {/* Glitch layers */}
                                     <span className="absolute inset-0 text-fuchsia-400 opacity-0 group-hover:opacity-70 group-hover:animate-[glitch1_0.3s_infinite] z-0" aria-hidden="true">
-                                        СЧУПИ<br />БАРИЕРИТЕ
+                                        Счупи<br />Лимитациите
                                     </span>
                                     <span className="absolute inset-0 text-cyan-400 opacity-0 group-hover:opacity-70 group-hover:animate-[glitch2_0.3s_infinite] z-0" aria-hidden="true">
-                                        СЧУПИ<br />БАРИЕРИТЕ
+                                        Счупи<br />Лимитациите
                                     </span>
                                 </h3>
                             </div>
@@ -141,22 +145,24 @@ export default function BentoGrid2() {
                             >
                                 <source src="/videos/Landing4.webm" type="video/webm" />
                             </video>
-                            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-transparent" />
+
                         </div>
                     </BentoCard>
 
                     {/* Cells 7+8: Mission Statement */}
                     <BentoCard className="md:col-span-2 md:row-span-1 relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/40 via-fuchsia-900/30 to-purple-900/40" />
+                        {/* White base layer for clean yellow */}
+
+
                         <div className="relative z-10 p-8 h-full flex flex-col justify-center">
                             <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
                                 Даваме AI-конкурентно предимство<br />на хората на България
                             </h3>
                             <div className="flex items-center gap-3 mt-4">
-                                <div className="p-2 rounded-lg bg-purple-500/20">
-                                    <Users className="h-6 w-6 text-purple-400" />
+                                <div className="p-2 rounded-lg bg-accent-yellow/10">
+                                    <Users className="h-6 w-6 text-accent-yellow" />
                                 </div>
-                                <p className="text-xl text-purple-300 font-semibold">
+                                <p className="text-xl text-accent-yellow font-semibold">
                                     Над 3000 души са пробвали методологията
                                 </p>
                             </div>

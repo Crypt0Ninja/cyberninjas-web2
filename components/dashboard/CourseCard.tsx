@@ -35,8 +35,8 @@ export function CourseCard({ course, progress }: CourseCardProps) {
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                     ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-purple-500/20 to-fuchsia-500/20 flex items-center justify-center">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" className="text-purple-400/50">
+                        <div className="w-full h-full bg-gradient-to-br from-accent-yellow/20 to-accent-yellow-hover/20 flex items-center justify-center">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" className="text-accent-yellow/50">
                                 <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="2" />
                                 <path d="M10 9L15 12L10 15V9Z" fill="currentColor" />
                             </svg>
@@ -66,7 +66,7 @@ export function CourseCard({ course, progress }: CourseCardProps) {
 
                 {/* Content */}
                 <div className="p-5">
-                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-accent-yellow transition-colors">
                         {course.title}
                     </h3>
 
@@ -81,11 +81,11 @@ export function CourseCard({ course, progress }: CourseCardProps) {
                         <div className="space-y-2">
                             <div className="flex justify-between text-xs">
                                 <span className="text-gray-500">Прогрес</span>
-                                <span className="text-purple-400">{progress}%</span>
+                                <span className="text-accent-yellow">{progress}%</span>
                             </div>
                             <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
                                 <motion.div
-                                    className="h-full rounded-full bg-gradient-to-r from-purple-500 to-fuchsia-500"
+                                    className="h-full rounded-full bg-gradient-to-r from-accent-yellow to-accent-yellow-hover"
                                     initial={{ width: 0 }}
                                     animate={{ width: `${progress}%` }}
                                     transition={{ duration: 1, ease: 'easeOut' }}
@@ -96,7 +96,7 @@ export function CourseCard({ course, progress }: CourseCardProps) {
 
                     {/* CTA */}
                     {!hasProgress && (
-                        <div className="flex items-center gap-2 text-purple-400 text-sm font-medium group-hover:text-purple-300 transition-colors">
+                        <div className="flex items-center gap-2 text-accent-yellow text-sm font-medium group-hover:text-accent-yellow-hover transition-colors">
                             <span>Виж курса</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover:translate-x-1">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -107,7 +107,7 @@ export function CourseCard({ course, progress }: CourseCardProps) {
 
                 {/* Hover glow effect */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className="absolute inset-0 bg-gradient-to-t from-purple-500/10 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-accent-yellow/10 to-transparent" />
                 </div>
 
                 {/* Border glow on hover */}
@@ -117,7 +117,7 @@ export function CourseCard({ course, progress }: CourseCardProps) {
                         boxShadow: '0 0 0 1px rgba(139, 92, 246, 0)',
                     }}
                     whileHover={{
-                        boxShadow: '0 0 30px rgba(139, 92, 246, 0.3), 0 0 0 1px rgba(139, 92, 246, 0.5)',
+                        boxShadow: '0 0 30px rgba(253, 176, 34, 0.3), 0 0 0 1px rgba(253, 176, 34, 0.5)',
                     }}
                     transition={{ duration: 0.3 }}
                 />

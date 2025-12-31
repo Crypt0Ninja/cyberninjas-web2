@@ -195,7 +195,7 @@ export function HeroActionCard({
                             {stats?.streak && stats.streak > 0 && (
                                 <div className="flex justify-between items-center px-4 py-2 rounded-lg bg-white/[0.02]">
                                     <span className="text-sm text-gray-400">Streak</span>
-                                    <span className="text-lg font-semibold text-amber-400">
+                                    <span className="text-lg font-semibold text-accent-yellow">
                                         {stats.streak} дни 🔥
                                     </span>
                                 </div>

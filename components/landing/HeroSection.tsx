@@ -39,7 +39,7 @@ export default function HeroSection() {
                 >
                     <a
                         href="/dashboard"
-                        className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-fuchsia-600 rounded-full hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105"
+                        className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-accent-yellow to-accent-yellow-hover rounded-full hover:shadow-lg hover:shadow-accent-yellow/50 transition-all duration-300 hover:scale-105"
                     >
                         Започни сега
                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -47,7 +47,7 @@ export default function HeroSection() {
 
                     <a
                         href="#features"
-                        className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white/20 rounded-full hover:border-purple-500/50 hover:bg-white/5 transition-all duration-300"
+                        className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white/20 rounded-full hover:border-accent-yellow/50 hover:bg-white/5 transition-all duration-300"
                     >
                         Научи повече
                     </a>

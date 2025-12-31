@@ -10,7 +10,7 @@ export default function NewHero() {
   const [typingComplete, setTypingComplete] = useState(false);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center px-6">
+    <section className="relative min-h-[90vh] flex items-center justify-center px-6 bg-black">
       {/* Particle Network Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <ParticleNetwork
@@ -57,12 +57,36 @@ export default function NewHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             href="/dashboard"
-            className="group inline-flex items-center gap-2 px-10 py-5 text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-fuchsia-600 rounded-full shadow-lg shadow-purple-500/40 hover:shadow-xl hover:shadow-purple-500/60 hover:-translate-y-1 transition-all duration-300"
+            className="group inline-flex items-center gap-2 px-10 py-5 text-lg font-semibold text-text-on-yellow bg-accent-yellow rounded-full shadow-lg hover:bg-accent-yellow-hover hover:-translate-y-1 transition-all duration-300"
           >
             Започни сега
             <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </motion.a>
         )}
+      </div>
+
+      {/* Gradient Fade - stronger */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent via-black/80 to-black pointer-events-none" />
+
+      {/* Wave Divider with Gradient */}
+      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none">
+        <svg
+          className="relative block w-full h-[80px] md:h-[100px]"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#000000" stopOpacity="1" />
+              <stop offset="50%" stopColor="#000000" stopOpacity="1" />
+              <stop offset="100%" stopColor="#000000" stopOpacity="1" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,0 C150,80 350,80 600,50 C850,20 1050,20 1200,50 L1200,120 L0,120 Z"
+            fill="url(#waveGradient)"
+          />
+        </svg>
       </div>
     </section>
   );

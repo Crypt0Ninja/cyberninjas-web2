@@ -12,10 +12,10 @@ export default function CTASection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="relative p-12 sm:p-16 rounded-3xl bg-gradient-to-br from-purple-900/20 to-fuchsia-900/20 border border-white/10 overflow-hidden"
+                    className="relative p-12 sm:p-16 rounded-3xl bg-gradient-to-br from-accent-yellow/10 to-accent-yellow-muted/10 border border-white/10 overflow-hidden"
                 >
                     {/* Background glow */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-fuchsia-600/10 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent-yellow/5 via-accent-yellow-muted/5 to-transparent" />
 
                     {/* Content */}
                     <div className="relative z-10">
@@ -30,7 +30,7 @@ export default function CTASection() {
 
                         <a
                             href="/dashboard"
-                            className="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-fuchsia-600 rounded-full hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105"
+                            className="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-semibold text-text-on-yellow bg-accent-yellow rounded-full hover:bg-accent-yellow-hover transition-all duration-300 hover:scale-105 shadow-lg"
                         >
                             Създай безплатен акаунт
                             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

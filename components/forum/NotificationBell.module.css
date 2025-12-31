@@ -83,7 +83,7 @@
 .markAllButton {
     background: none;
     border: none;
-    color: #A78BFA;
+    color: #E6E600;
     font-size: 0.8125rem;
     cursor: pointer;
     padding: 0;
@@ -91,7 +91,7 @@
 }
 
 .markAllButton:hover {
-    color: #C084FC;
+    color: #FFFF00;
 }
 
 /* Notifications List */
@@ -114,11 +114,11 @@
 }
 
 .notification:hover {
-    background: rgba(139, 92, 246, 0.1);
+    background: rgba(255, 255, 0, 0.1);
 }
 
 .notification.unread {
-    background: rgba(139, 92, 246, 0.05);
+    background: rgba(255, 255, 0, 0.05);
 }
 
 .notification.unread::before {
@@ -128,7 +128,7 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: #8B5CF6;
+    background: #FFFF00;
 }
 
 .notificationIcon {
@@ -174,8 +174,8 @@
 .spinner {
     width: 24px;
     height: 24px;
-    border: 2px solid rgba(139, 92, 246, 0.2);
-    border-top-color: #8B5CF6;
+    border: 2px solid rgba(255, 255, 0, 0.2);
+    border-top-color: #FFFF00;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
 }
@@ -203,7 +203,7 @@
     display: block;
     padding: 0.875rem;
     text-align: center;
-    color: #A78BFA;
+    color: #E6E600;
     font-size: 0.875rem;
     font-weight: 500;
     text-decoration: none;
@@ -212,7 +212,7 @@
 }
 
 .viewAllLink:hover {
-    background: rgba(139, 92, 246, 0.1);
+    background: rgba(255, 255, 0, 0.1);
 }
 
 /* Responsive */

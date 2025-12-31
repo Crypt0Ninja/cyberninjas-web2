@@ -7,7 +7,7 @@ export default function BeforeAfterComparison() {
         <div className="relative h-40 overflow-hidden bg-gray-950/50">
             <div className="absolute inset-0 flex">
                 {/* Before Side */}
-                <div className="flex-1 px-4 py-4 border-r border-purple-500/20">
+                <div className="flex-1 px-4 py-4 border-r border-accent-yellow/20">
                     <div className="text-xs text-gray-500 mb-2">ПРЕДИ</div>
                     <div className="space-y-2">
                         <div className="text-xs text-gray-400 italic leading-relaxed">
@@ -20,10 +20,10 @@ export default function BeforeAfterComparison() {
                 </div>
 
                 {/* After Side */}
-                <div className="flex-1 px-4 py-4 bg-purple-500/5">
+                <div className="flex-1 px-4 py-4 bg-accent-yellow/5">
                     <div className="text-xs gradient-text font-semibold mb-2">СЛЕД DNA Protocol</div>
                     <div className="space-y-1.5">
-                        <div className="text-xs text-purple-300 font-mono leading-relaxed">
+                        <div className="text-xs text-accent-yellow font-mono leading-relaxed">
                             ДЕЙСТВАЙ КАТО: Елитен Копирайтър
                         </div>
                         <div className="text-xs text-gray-400 leading-relaxed">
@@ -59,13 +59,13 @@ export default function BeforeAfterComparison() {
                     </div>
 
                     {/* Divider */}
-                    <div className="w-px bg-gradient-to-b from-transparent via-purple-500/50 to-transparent" />
+                    <div className="w-px bg-gradient-to-b from-transparent via-accent-yellow/50 to-transparent" />
 
                     {/* After - Expanded */}
                     <div className="flex-1 flex flex-col">
                         <div className="text-xs gradient-text font-semibold mb-2">СЛЕД DNA Protocol</div>
-                        <div className="flex-1 bg-purple-950/30 rounded-lg p-3 border border-purple-500/30 overflow-auto">
-                            <p className="text-xs text-purple-300 font-mono mb-2">
+                        <div className="flex-1 bg-accent-yellow/5 rounded-lg p-3 border border-accent-yellow/30 overflow-auto">
+                            <p className="text-xs text-accent-yellow font-mono mb-2">
                                 ДЕЙСТВАЙ КАТО: Елитен Копирайтър обучен в невромаркетинг
                             </p>
                             <p className="text-xs text-gray-400 leading-relaxed">

@@ -58,10 +58,10 @@ export default function FeaturesSection() {
                             transition={{ duration: 0.5, delay: index * 0.15 }}
                             className="group relative"
                         >
-                            <div className="h-full flex flex-col p-8 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-purple-500/30 hover:bg-white/[0.05] transition-all duration-300">
+                            <div className="h-full flex flex-col p-8 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-accent-yellow/30 hover:bg-white/[0.05] transition-all duration-300">
                                 {/* Icon */}
-                                <div className="mb-6 p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-fuchsia-500/20 w-fit">
-                                    <feature.icon className="h-8 w-8 text-purple-400" />
+                                <div className="mb-6 p-4 rounded-2xl bg-gradient-to-br from-accent-yellow/20 to-accent-yellow-hover/20 w-fit">
+                                    <feature.icon className="h-8 w-8 text-accent-yellow" />
                                 </div>
 
                                 {/* Title */}
@@ -75,7 +75,7 @@ export default function FeaturesSection() {
                                 </p>
 
                                 {/* GIF Placeholder */}
-                                <div className="relative aspect-video rounded-xl bg-gradient-to-br from-purple-900/20 to-fuchsia-900/20 border border-white/10 overflow-hidden">
+                                <div className="relative aspect-video rounded-xl bg-gradient-to-br from-accent-yellow/20 to-accent-yellow-hover/20 border border-white/10 overflow-hidden">
                                     {/* Placeholder for future GIF */}
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <div className="text-center">

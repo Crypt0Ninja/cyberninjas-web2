@@ -28,14 +28,9 @@ export default function DashboardLayout({
     // Show loading while checking auth
     if (loading) {
         return (
-            <div className="min-h-screen bg-background flex items-center justify-center">
-                <div className="aurora">
-                    <div className="aurora-blob aurora-blob-1" />
-                    <div className="aurora-blob aurora-blob-2" />
-                    <div className="aurora-blob aurora-blob-3" />
-                </div>
+            <div className="min-h-screen bg-transparent flex items-center justify-center">
                 <div className="relative z-10 flex flex-col items-center gap-4">
-                    <div className="w-12 h-12 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
+                    <div className="w-12 h-12 border-2 border-accent-yellow border-t-transparent rounded-full animate-spin" />
                     <p className="text-gray-400">Зареждане...</p>
                 </div>
             </div>
@@ -48,13 +43,8 @@ export default function DashboardLayout({
     }
 
     return (
-        <div className="min-h-screen bg-background">
-            {/* Aurora Background */}
-            <div className="aurora">
-                <div className="aurora-blob aurora-blob-1" />
-                <div className="aurora-blob aurora-blob-2" />
-                <div className="aurora-blob aurora-blob-3" />
-            </div>
+        <div className="min-h-screen bg-transparent">
+
 
             {/* Sidebar - Desktop Only */}
             <Sidebar />

@@ -33,7 +33,7 @@
 }
 
 .sidebarIcon {
-  color: #A78BFA;
+  color: #E6E600;
   flex-shrink: 0;
 }
 
@@ -54,7 +54,7 @@
 
 .starterCard:hover .starterArrowIcon {
   transform: translateX(4px);
-  color: var(--accent, #8B5CF6);
+  color: var(--accent, #FFFF00);
 }
 
 .emptyIconWrapper {
@@ -63,13 +63,13 @@
   justify-content: center;
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(168, 85, 247, 0.1));
+  background: linear-gradient(135deg, rgba(255, 255, 0, 0.2), rgba(255, 255, 0, 0.1));
   border-radius: 24px;
   margin-bottom: 1rem;
 }
 
 .emptyIconWrapper svg {
-  color: #A78BFA;
+  color: #E6E600;
 }
 
 /* Breadcrumbs */
@@ -88,7 +88,7 @@
 }
 
 .breadcrumbs a:hover {
-  color: #A78BFA;
+  color: #E6E600;
 }
 
 .breadcrumbSep {
@@ -121,7 +121,7 @@
 }
 
 .gradientText {
-  background: linear-gradient(135deg, #7C3AED 0%, #A855F7 50%, #C084FC 100%);
+  background: linear-gradient(135deg, #CCCC00 0%, #E6E600 50%, #FFFF00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -186,8 +186,8 @@
 
 .searchInput:focus {
   outline: none;
-  border-color: #8B5CF6;
-  background: rgba(139, 92, 246, 0.1);
+  border-color: #FFFF00;
+  background: rgba(255, 255, 0, 0.1);
 }
 
 .searchInput::placeholder {
@@ -199,8 +199,8 @@
   right: 2.5rem;
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(139, 92, 246, 0.3);
-  border-top-color: #8B5CF6;
+  border: 2px solid rgba(255, 255, 0, 0.3);
+  border-top-color: #FFFF00;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -251,7 +251,7 @@
 }
 
 .searchResult:hover {
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(255, 255, 0, 0.1);
 }
 
 .searchResultTitle {
@@ -276,10 +276,10 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.25rem;
-  background: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
+  background: linear-gradient(135deg, #E6E600 0%, #FFFF00 100%);
   border: none;
   border-radius: 10px;
-  color: #fff;
+  color: #18181B;
   font-weight: 600;
   font-size: 0.9375rem;
   cursor: pointer;
@@ -352,9 +352,9 @@
 }
 
 .categoryPill.active {
-  background: var(--cat-color, #8B5CF6);
-  border-color: var(--cat-color, #8B5CF6);
-  color: #fff;
+  background: var(--cat-color, #FFFF00);
+  border-color: var(--cat-color, #FFFF00);
+  color: #18181B;
 }
 
 .categoryIcon {
@@ -399,9 +399,9 @@
 }
 
 .sortOption.active {
-  background: rgba(139, 92, 246, 0.1);
-  border-color: rgba(139, 92, 246, 0.3);
-  color: #A78BFA;
+  background: rgba(255, 255, 0, 0.1);
+  border-color: rgba(255, 255, 0, 0.3);
+  color: #E6E600;
 }
 
 /* Topics Container */
@@ -417,7 +417,7 @@
   padding: 1rem 1.25rem;
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-left: 3px solid var(--border-color, #8B5CF6);
+  border-left: 3px solid var(--border-color, #FFFF00);
   border-radius: 12px;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -426,7 +426,7 @@
 .topicCard:hover {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.12);
-  border-left-color: var(--border-color, #8B5CF6);
+  border-left-color: var(--border-color, #FFFF00);
   transform: translateX(2px);
 }
 
@@ -454,9 +454,9 @@
   align-items: center;
   gap: 0.25rem;
   padding: 0.1875rem 0.5rem;
-  background: color-mix(in srgb, var(--cat-color, #8B5CF6) 15%, transparent);
+  background: color-mix(in srgb, var(--cat-color, #FFFF00) 15%, transparent);
   border-radius: 4px;
-  color: var(--cat-color, #A78BFA);
+  color: var(--cat-color, #E6E600);
   font-size: 0.6875rem;
   font-weight: 500;
 }
@@ -526,7 +526,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #7C3AED, #8B5CF6);
+  background: linear-gradient(135deg, #CCCC00, #FFFF00);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -540,7 +540,7 @@
 }
 
 .avatar span {
-  color: #fff;
+  color: #18181B;
   font-size: 0.6875rem;
   font-weight: 600;
 }
@@ -620,7 +620,7 @@
   padding: 1rem 1.25rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-left: 3px solid var(--accent, #8B5CF6);
+  border-left: 3px solid var(--accent, #FFFF00);
   border-radius: 12px;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -661,7 +661,7 @@
 
 .starterCard:hover .starterArrow {
   transform: translateX(4px);
-  color: var(--accent, #8B5CF6);
+  color: var(--accent, #FFFF00);
 }
 
 .emptyAction {
@@ -760,17 +760,17 @@
 
 .tagButton {
   padding: 0.375rem 0.625rem;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba(255, 255, 0, 0.1);
+  border: 1px solid rgba(255, 255, 0, 0.2);
   border-radius: 6px;
-  color: #A78BFA;
+  color: #E6E600;
   font-size: 0.75rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .tagButton:hover {
-  background: rgba(139, 92, 246, 0.2);
+  background: rgba(255, 255, 0, 0.2);
   transform: scale(1.05);
 }
 
@@ -811,7 +811,7 @@
 .leaderboardRank {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #A78BFA;
+  color: #E6E600;
   min-width: 24px;
 }
 
@@ -819,7 +819,7 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #7C3AED, #8B5CF6);
+  background: linear-gradient(135deg, #CCCC00, #FFFF00);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -834,7 +834,7 @@
 }
 
 .leaderboardAvatar span {
-  color: #fff;
+  color: #18181B;
   font-size: 0.6875rem;
   font-weight: 600;
 }
@@ -851,8 +851,8 @@
 .leaderboardPoints {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #A78BFA;
-  background: rgba(139, 92, 246, 0.1);
+  color: #E6E600;
+  background: rgba(255, 255, 0, 0.1);
   padding: 0.125rem 0.5rem;
   border-radius: 4px;
 }
@@ -878,21 +878,21 @@
 }
 
 .quickLinks a:hover {
-  background: rgba(139, 92, 246, 0.1);
-  color: #C084FC;
+  background: rgba(255, 255, 0, 0.1);
+  color: #FFFF00;
 }
 
 /* Primary Quick Link - highlighted */
 .primaryQuickLink {
-  background: rgba(139, 92, 246, 0.15) !important;
-  color: #A78BFA !important;
+  background: rgba(255, 255, 0, 0.15) !important;
+  color: #E6E600 !important;
   font-weight: 500;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(255, 255, 0, 0.2);
 }
 
 .primaryQuickLink:hover {
-  background: rgba(139, 92, 246, 0.25) !important;
-  border-color: rgba(139, 92, 246, 0.4);
+  background: rgba(255, 255, 0, 0.25) !important;
+  border-color: rgba(255, 255, 0, 0.4);
 }
 
 /* Loading States */
@@ -908,8 +908,8 @@
 .loadingSpinner {
   width: 36px;
   height: 36px;
-  border: 3px solid rgba(139, 92, 246, 0.2);
-  border-top-color: #8B5CF6;
+  border: 3px solid rgba(255, 255, 0, 0.2);
+  border-top-color: #FFFF00;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -1011,7 +1011,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+  background: linear-gradient(135deg, #FFFF00 0%, #E6E600 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1028,7 +1028,7 @@
 .userAvatar span {
   font-size: 1.125rem;
   font-weight: 600;
-  color: white;
+  color: #18181B;
 }
 
 .userInfo {
@@ -1053,8 +1053,8 @@
   align-items: center;
   gap: 0.375rem;
   font-size: 0.75rem;
-  color: #A78BFA;
-  background: rgba(139, 92, 246, 0.15);
+  color: #E6E600;
+  background: rgba(255, 255, 0, 0.15);
   padding: 0.125rem 0.5rem;
   border-radius: 99px;
   width: fit-content;
@@ -1104,8 +1104,8 @@
   align-items: center;
   justify-content: center;
   padding: 0.625rem 1.25rem;
-  background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
-  color: white;
+  background: linear-gradient(135deg, #FFFF00 0%, #E6E600 100%);
+  color: #18181B;
   font-weight: 500;
   font-size: 0.875rem;
   border-radius: 8px;
@@ -1116,7 +1116,7 @@
 
 .loginButtonSidebar:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 4px 15px rgba(255, 255, 0, 0.4);
 }
 
 /* Header User Menu */
@@ -1128,7 +1128,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+  background: linear-gradient(135deg, #FFFF00 0%, #E6E600 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1139,7 +1139,7 @@
 }
 
 .headerUserMenu:hover .headerAvatar {
-  border-color: #8B5CF6;
+  border-color: #FFFF00;
 }
 
 .headerAvatar img {
@@ -1151,7 +1151,7 @@
 .headerAvatar span {
   font-size: 1rem;
   font-weight: 600;
-  color: white;
+  color: #18181B;
 }
 
 .headerUserDropdown {
@@ -1196,7 +1196,7 @@
   align-items: center;
   gap: 0.375rem;
   font-size: 0.75rem;
-  color: #A78BFA;
+  color: #E6E600;
 }
 
 .dropdownLogout {
@@ -1232,7 +1232,7 @@
 }
 
 .headerLoginButton:hover {
-  background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+  background: linear-gradient(135deg, #FFFF00 0%, #E6E600 100%);
   color: white;
 }
 
@@ -1246,14 +1246,14 @@
   background: transparent;
   border: 1px solid #27272A;
   border-radius: 50%;
-  color: #A78BFA;
+  color: #E6E600;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .themeToggle:hover {
-  background: rgba(139, 92, 246, 0.1);
-  border-color: #8B5CF6;
+  background: rgba(255, 255, 0, 0.1);
+  border-color: #FFFF00;
 }
 
 /* ========================= */
@@ -1280,7 +1280,7 @@
 
 /* Header - Light */
 .forumContainer[data-theme="light"] .forumTitle .gradientText {
-  background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+  background: linear-gradient(135deg, #CCCC00 0%, #E6E600 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -1323,13 +1323,13 @@
 }
 
 .forumContainer[data-theme="light"] .categoryPill:hover {
-  border-color: #A78BFA;
-  color: #7C3AED;
+  border-color: #E6E600;
+  color: #997A00;
 }
 
 .forumContainer[data-theme="light"] .categoryPill.active {
-  background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
-  color: white;
+  background: linear-gradient(135deg, #FFFF00 0%, #E6E600 100%);
+  color: #18181B;
 }
 
 /* Topic Cards - Light */
@@ -1339,8 +1339,8 @@
 }
 
 .forumContainer[data-theme="light"] .topicCard:hover {
-  border-color: #A78BFA;
-  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);
+  border-color: #E6E600;
+  box-shadow: 0 4px 20px rgba(255, 255, 0, 0.1);
 }
 
 .forumContainer[data-theme="light"] .topicTitle {
@@ -1385,9 +1385,9 @@
 }
 
 .forumContainer[data-theme="light"] .tagButton:hover {
-  background: #EDE9FE;
-  color: #7C3AED;
-  border-color: #A78BFA;
+  background: #FFFDE7;
+  color: #997A00;
+  border-color: #E6E600;
 }
 
 /* Quick Links - Light */
@@ -1396,18 +1396,18 @@
 }
 
 .forumContainer[data-theme="light"] .quickLinks a:hover {
-  color: #7C3AED;
-  background: #EDE9FE;
+  color: #997A00;
+  background: #FFFDE7;
 }
 
 /* Theme Toggle - Light */
 .forumContainer[data-theme="light"] .themeToggle {
   border-color: #E4E4E7;
-  color: #7C3AED;
+  color: #997A00;
 }
 
 .forumContainer[data-theme="light"] .themeToggle:hover {
-  background: #EDE9FE;
+  background: #FFFDE7;
 }
 
 /* Header User - Light */
@@ -1440,7 +1440,7 @@
 }
 
 .forumContainer[data-theme="light"] .starterCard:hover {
-  border-color: var(--accent, #8B5CF6);
+  border-color: var(--accent, #FFFF00);
 }
 
 .forumContainer[data-theme="light"] .starterContent h4 {
@@ -1459,9 +1459,9 @@
 }
 
 .forumContainer[data-theme="light"] .sortButton.active {
-  background: #EDE9FE;
-  border-color: #A78BFA;
-  color: #7C3AED;
+  background: #FFFDE7;
+  border-color: #E6E600;
+  color: #997A00;
 }
 
 /* Loading State - Light */

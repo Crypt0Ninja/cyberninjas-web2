@@ -38,9 +38,9 @@ export default function BentoCard({
       whileHover={hover ? { y: -4 } : {}}
       transition={{ duration: 0.3 }}
       style={{
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02))',
+        background: '#000000',
         border: borderStyle,
-        backdropFilter: 'blur(20px)',
+        backdropFilter: 'none',
       }}
     >
       {/* Card Content */}

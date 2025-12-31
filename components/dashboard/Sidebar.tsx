@@ -203,16 +203,13 @@ export function Sidebar() {
                 transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             >
                 {/* Logo */}
-                <div className="p-6 border-b border-white/10">
-                    <Link href="/" className="flex items-center gap-3">
+                <div className="p-6 border-b border-white/10 flex justify-center">
+                    <Link href="/" className="flex items-center justify-center p-3 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-accent-yellow/30 transition-all group">
                         <img
-                            src="/lms-logo.png"
+                            src="/images/logo.svg"
                             alt="CyberNinjas"
-                            className="h-10 w-auto"
+                            className="h-8 w-auto transition-transform group-hover:scale-110"
                         />
-                        <span className="text-xl font-bold">
-                            Cyber<span className="gradient-text">Ninjas</span>
-                        </span>
                     </Link>
                 </div>
 
@@ -234,7 +231,7 @@ export function Sidebar() {
                                     'transition-all duration-300',
                                     'group relative overflow-hidden',
                                     active
-                                        ? 'bg-purple-500/20 text-white'
+                                        ? 'bg-accent-yellow/20 text-white'
                                         : 'text-gray-400 hover:text-white hover:bg-white/5'
                                 )}
                             >
@@ -242,14 +239,14 @@ export function Sidebar() {
                                 {active && (
                                     <motion.div
                                         layoutId="activeIndicator"
-                                        className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 rounded-r-full bg-gradient-to-b from-purple-400 to-fuchsia-400"
+                                        className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 rounded-r-full bg-gradient-to-b from-accent-yellow to-accent-yellow-hover"
                                         transition={{ type: 'spring', damping: 30, stiffness: 300 }}
                                     />
                                 )}
 
                                 <span className={clsx(
                                     'transition-colors duration-300',
-                                    active ? 'text-purple-400' : 'text-gray-500 group-hover:text-purple-400'
+                                    active ? 'text-accent-yellow' : 'text-gray-500 group-hover:text-accent-yellow'
                                 )}>
                                     {item.icon}
                                 </span>
@@ -259,7 +256,7 @@ export function Sidebar() {
                                 <motion.div
                                     className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none"
                                     style={{
-                                        background: 'radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(139, 92, 246, 0.15), transparent 60%)',
+                                        background: 'radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(253, 176, 34, 0.15), transparent 60%)',
                                     }}
                                 />
                             </Link>
@@ -283,7 +280,7 @@ export function Sidebar() {
                                         'transition-all duration-300',
                                         'group relative overflow-hidden',
                                         active
-                                            ? 'bg-purple-500/20 text-white'
+                                            ? 'bg-accent-yellow/20 text-white'
                                             : 'text-gray-400 hover:text-white hover:bg-white/5'
                                     )}
                                 >
@@ -291,14 +288,14 @@ export function Sidebar() {
                                     {active && (
                                         <motion.div
                                             layoutId="activeIndicator"
-                                            className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 rounded-r-full bg-gradient-to-b from-purple-400 to-fuchsia-400"
+                                            className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 rounded-r-full bg-gradient-to-b from-accent-yellow to-accent-yellow-hover"
                                             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
                                         />
                                     )}
 
                                     <span className={clsx(
                                         'transition-colors duration-300',
-                                        active ? 'text-purple-400' : 'text-gray-500 group-hover:text-purple-400'
+                                        active ? 'text-accent-yellow' : 'text-gray-500 group-hover:text-accent-yellow'
                                     )}>
                                         {item.icon}
                                     </span>
@@ -308,7 +305,7 @@ export function Sidebar() {
                                     <motion.div
                                         className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none"
                                         style={{
-                                            background: 'radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(139, 92, 246, 0.15), transparent 60%)',
+                                            background: 'radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(253, 176, 34, 0.15), transparent 60%)',
                                         }}
                                     />
                                 </Link>
@@ -333,7 +330,7 @@ export function Sidebar() {
                                         'transition-all duration-300',
                                         'group relative overflow-hidden',
                                         active
-                                            ? 'bg-purple-500/20 text-white'
+                                            ? 'bg-accent-yellow/20 text-white'
                                             : 'text-gray-400 hover:text-white hover:bg-white/5'
                                     )}
                                 >
@@ -341,14 +338,14 @@ export function Sidebar() {
                                     {active && (
                                         <motion.div
                                             layoutId="activeIndicator"
-                                            className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 rounded-r-full bg-gradient-to-b from-purple-400 to-fuchsia-400"
+                                            className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 rounded-r-full bg-gradient-to-b from-accent-yellow to-accent-yellow-hover"
                                             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
                                         />
                                     )}
 
                                     <span className={clsx(
                                         'transition-colors duration-300',
-                                        active ? 'text-purple-400' : 'text-gray-500 group-hover:text-purple-400'
+                                        active ? 'text-accent-yellow' : 'text-gray-500 group-hover:text-accent-yellow'
                                     )}>
                                         {item.icon}
                                     </span>
@@ -358,7 +355,7 @@ export function Sidebar() {
                                     <motion.div
                                         className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none"
                                         style={{
-                                            background: 'radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(139, 92, 246, 0.15), transparent 60%)',
+                                            background: 'radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(253, 176, 34, 0.15), transparent 60%)',
                                         }}
                                     />
                                 </Link>
@@ -403,7 +400,7 @@ export function Sidebar() {
                 {/* User Section */}
                 <div className="p-4 border-t border-white/10">
                     <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-fuchsia-500 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-yellow to-fuchsia-500 flex items-center justify-center">
                             <span className="text-sm font-bold text-white">{getInitials()}</span>
                         </div>
                         <div className="flex-1 min-w-0">

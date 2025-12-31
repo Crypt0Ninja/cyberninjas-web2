@@ -31,10 +31,10 @@ export function AchievementToast() {
                 }}
                 className="fixed top-6 right-6 z-50 max-w-md"
             >
-                <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-900/95 to-fuchsia-900/95 backdrop-blur-xl border-2 border-purple-500/50 shadow-2xl">
+                <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-900/95 to-yellow-900/95 backdrop-blur-xl border-2 border-accent-yellow/50 shadow-2xl">
                     {/* Animated background glow */}
                     <motion.div
-                        className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-fuchsia-500/30"
+                        className="absolute inset-0 bg-gradient-to-br from-accent-yellow/30 to-amber-500/30"
                         animate={{
                             opacity: [0.3, 0.6, 0.3],
                             scale: [1, 1.1, 1]
@@ -48,7 +48,7 @@ export function AchievementToast() {
 
                     {/* Sparkle effect */}
                     <motion.div
-                        className="absolute top-0 right-0 w-32 h-32 rounded-full bg-fuchsia-500/20 blur-3xl"
+                        className="absolute top-0 right-0 w-32 h-32 rounded-full bg-amber-500/20 blur-3xl"
                         animate={{
                             scale: [1, 1.5, 1],
                             opacity: [0.3, 0.6, 0.3]
@@ -90,7 +90,7 @@ export function AchievementToast() {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.3 }}
-                                    className="text-sm font-medium text-purple-300 uppercase tracking-wider"
+                                    className="text-sm font-medium text-accent-yellow uppercase tracking-wider"
                                 >
                                     Achievement Unlocked!
                                 </motion.p>
@@ -121,7 +121,7 @@ export function AchievementToast() {
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: 0.6 }}
-                                className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-purple-500/30 border border-purple-500/50"
+                                className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-accent-yellow/30 border border-accent-yellow/50"
                             >
                                 <Zap className="w-5 h-5 text-yellow-400" />
                                 <span className="text-lg font-bold text-white">
@@ -135,7 +135,7 @@ export function AchievementToast() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.7 }}
-                            className="absolute bottom-3 left-3 text-xs text-purple-300"
+                            className="absolute bottom-3 left-3 text-xs text-accent-yellow"
                         >
                             {recentlyUnlocked.tier === 1 && '⭐ Tier 1'}
                             {recentlyUnlocked.tier === 2 && '⭐⭐ Tier 2'}
@@ -146,7 +146,7 @@ export function AchievementToast() {
 
                     {/* Progress bar animation (auto-dismiss indicator) */}
                     <motion.div
-                        className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-fuchsia-500"
+                        className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-yellow to-accent-yellow-hover"
                         initial={{ scaleX: 1 }}
                         animate={{ scaleX: 0 }}
                         transition={{ duration: 5, ease: 'linear' }}

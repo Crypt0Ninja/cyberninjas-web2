@@ -98,8 +98,8 @@ export default function BentoGrid1() {
                                 <div className="p-6 lg:p-8 h-full flex flex-col">
                                     {/* Inline Title with Icon */}
                                     <div className="flex items-center gap-4 mb-6">
-                                        <div className="p-3 rounded-2xl bg-gradient-to-br from-purple-500/20 to-fuchsia-500/20">
-                                            <Book className="h-7 w-7 text-purple-400" />
+                                        <div className="p-3 rounded-2xl bg-gradient-to-br from-accent-yellow/8 to-accent-yellow-hover/8">
+                                            <Book className="h-7 w-7 text-accent-yellow" />
                                         </div>
                                         <h3 className="text-3xl lg:text-4xl font-bold text-white">
                                             Библиотека с промптове
@@ -111,10 +111,10 @@ export default function BentoGrid1() {
                                         {libraryFeatures.map((feature, i) => (
                                             <div
                                                 key={i}
-                                                className="flex flex-col items-center justify-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/30 transition-all group cursor-pointer"
+                                                className="flex flex-col items-center justify-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent-yellow/30 transition-all group cursor-pointer"
                                             >
-                                                <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/20 to-fuchsia-500/20 mb-4 group-hover:scale-110 transition-transform">
-                                                    <feature.icon className="h-8 w-8 text-purple-400" />
+                                                <div className="p-4 rounded-xl bg-gradient-to-br from-accent-yellow/10 to-accent-yellow-hover/10 mb-4 group-hover:scale-110 transition-transform">
+                                                    <feature.icon className="h-8 w-8 text-accent-yellow" />
                                                 </div>
                                                 <div className="text-center">
                                                     <div className="text-base font-semibold text-white mb-1">{feature.label}</div>
@@ -124,7 +124,7 @@ export default function BentoGrid1() {
                                         ))}
                                     </div>
 
-                                    <button className="w-full px-6 py-4 rounded-full bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/30 text-purple-300 font-semibold transition-all">
+                                    <button className="w-full px-6 py-4 rounded-full bg-accent-yellow/10 hover:bg-accent-yellow/15 border border-accent-yellow/20 text-accent-yellow font-semibold transition-all">
                                         Разгледай
                                     </button>
                                 </div>
@@ -133,13 +133,13 @@ export default function BentoGrid1() {
                             {/* Resources Card */}
                             <BentoCard className="flex-1 min-h-[280px] lg:min-h-[320px] relative overflow-hidden">
                                 {/* Purple gradient background */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-fuchsia-600/20 to-purple-600/30" />
+
 
                                 <div className="relative z-10 p-5 lg:p-8 h-full flex flex-col">
                                     {/* Title with Icon - stacked on mobile */}
                                     <div className="flex items-center gap-3 mb-4 lg:mb-6">
                                         <div className="p-2 lg:p-3 rounded-xl bg-white/10 backdrop-blur-sm flex-shrink-0">
-                                            <Zap className="h-5 w-5 lg:h-6 lg:w-6 text-purple-300" />
+                                            <Zap className="h-5 w-5 lg:h-6 lg:w-6 text-accent-yellow" />
                                         </div>
                                         <h3 className="text-xl lg:text-3xl font-bold text-white">
                                             Ресурси & Директории
@@ -151,13 +151,13 @@ export default function BentoGrid1() {
                                         {resourceLinks.map((link, i) => (
                                             <button
                                                 key={i}
-                                                className="group p-3 lg:p-4 rounded-xl lg:rounded-2xl bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 hover:border-purple-400/50 transition-all flex items-center gap-3 text-left"
+                                                className="group p-3 lg:p-4 rounded-xl lg:rounded-2xl bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 hover:border-accent-yellow/50 transition-all flex items-center gap-3 text-left"
                                             >
-                                                <div className="p-2 rounded-lg bg-purple-500/20 group-hover:bg-purple-500/30 transition-colors flex-shrink-0">
-                                                    <link.icon className="h-4 w-4 lg:h-5 lg:w-5 text-purple-300" />
+                                                <div className="p-2 rounded-lg bg-accent-yellow/10 group-hover:bg-accent-yellow/15 transition-colors flex-shrink-0">
+                                                    <link.icon className="h-4 w-4 lg:h-5 lg:w-5 text-accent-yellow" />
                                                 </div>
                                                 <div className="min-w-0">
-                                                    <span className="text-sm font-semibold text-white group-hover:text-purple-300 transition-colors block">
+                                                    <span className="text-sm font-semibold text-white group-hover:text-accent-yellow transition-colors block">
                                                         {link.label}
                                                     </span>
                                                     <p className="text-xs text-gray-400 truncate lg:whitespace-normal">
@@ -182,8 +182,8 @@ export default function BentoGrid1() {
                                 NEW
                             </div>
                             <div className="flex items-center gap-3 mb-4">
-                                <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500/20 to-fuchsia-500/20">
-                                    <Calendar className="h-6 w-6 text-purple-400" />
+                                <div className="p-3 rounded-xl bg-gradient-to-br from-accent-yellow/10 to-accent-yellow-hover/10">
+                                    <Calendar className="h-6 w-6 text-accent-yellow" />
                                 </div>
                                 <h4 className="text-2xl font-bold text-white">Най-нови курсове</h4>
                             </div>
@@ -197,8 +197,8 @@ export default function BentoGrid1() {
                     <BentoCard hover={true}>
                         <div className="p-6 lg:p-8 h-full flex flex-col justify-center">
                             <div className="flex items-center gap-3 mb-4">
-                                <div className="p-3 rounded-xl bg-purple-500/10">
-                                    <Users className="h-6 w-6 text-purple-400" />
+                                <div className="p-3 rounded-xl bg-accent-yellow/10">
+                                    <Users className="h-6 w-6 text-accent-yellow" />
                                 </div>
                                 <h4 className="text-2xl font-bold text-white">Общност и Форум</h4>
                             </div>
@@ -210,7 +210,7 @@ export default function BentoGrid1() {
 
                     {/* За Нас - Big CTA */}
                     <BentoCard className="relative overflow-hidden group" hover={true}>
-                        <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-600/40 via-purple-600/30 to-fuchsia-600/40 group-hover:from-fuchsia-500/50 group-hover:via-purple-500/40 group-hover:to-fuchsia-500/50 transition-all duration-500" />
+
                         <div className="relative z-10 p-6 h-full flex flex-col justify-center items-center text-center">
                             <div className="mb-4 p-4 rounded-2xl bg-white/10 backdrop-blur-sm">
                                 <Zap className="h-8 w-8 text-fuchsia-300" />
@@ -218,9 +218,7 @@ export default function BentoGrid1() {
                             <h4 className="text-2xl font-bold text-white mb-3 leading-tight">
                                 Запознай се с бъдещето на работа
                             </h4>
-                            <p className="text-fuchsia-200 text-lg font-bold mb-4">
-                                СЕГА
-                            </p>
+
                             <p className="text-gray-300 text-sm mb-4">
                                 Докато другите чакат — ти ще си готов.
                             </p>

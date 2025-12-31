@@ -154,14 +154,14 @@ export default function ProfilePage() {
             {/* Upgrade CTA - only show for free users */}
             {profile?.subscription_tier !== 'paid' && (
                 <motion.div
-                    className="p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-500/10 to-fuchsia-500/10 border border-purple-500/20"
+                    className="p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br from-accent-yellow/10 to-yellow-500/10 border border-accent-yellow/20"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                 >
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-purple-500/20 flex items-center justify-center flex-shrink-0">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-purple-400 sm:w-8 sm:h-8">
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-accent-yellow/20 flex items-center justify-center flex-shrink-0">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-yellow sm:w-8 sm:h-8">
                                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                             </svg>
                         </div>
@@ -171,7 +171,7 @@ export default function ProfilePage() {
                                 Получи достъп до всички курсове и ексклузивно съдържание.
                             </p>
                         </div>
-                        <button className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white font-medium hover:opacity-90 transition-opacity text-sm sm:text-base">
+                        <button className="w-full sm:w-auto px-6 py-3 rounded-xl bg-accent-yellow hover:bg-accent-yellow-hover text-text-on-yellow font-medium transition-colors text-sm sm:text-base">
                             Надгради сега
                         </button>
                     </div>

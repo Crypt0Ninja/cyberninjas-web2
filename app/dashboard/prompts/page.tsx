@@ -41,7 +41,7 @@ export default function PromptsPage() {
                             transition={{ duration: 0.3, delay: 0.1 * index }}
                         >
                             <Link href={`/dashboard/prompts/${library.slug}`}>
-                                <div className="group relative rounded-2xl bg-white/[0.03] border border-white/10 hover:border-purple-500/30 transition-all cursor-pointer overflow-hidden">
+                                <div className="group relative rounded-2xl bg-white/[0.03] border border-white/10 hover:border-accent-yellow/30 transition-all cursor-pointer overflow-hidden">
                                     {/* Cover Image */}
                                     <div className="relative h-40 overflow-hidden">
                                         {library.thumbnail_url ? (
@@ -51,8 +51,8 @@ export default function PromptsPage() {
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                             />
                                         ) : (
-                                            <div className="w-full h-full bg-gradient-to-br from-purple-500/30 via-fuchsia-500/20 to-pink-500/30 flex items-center justify-center">
-                                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-purple-300/50">
+                                            <div className="w-full h-full bg-gradient-to-br from-accent-yellow/20 via-yellow-500/10 to-orange-500/20 flex items-center justify-center">
+                                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-accent-yellow/50">
                                                     <path d="M12 3L20 7.5V16.5L12 21L4 16.5V7.5L12 3Z" />
                                                     <path d="M12 12L20 7.5" />
                                                     <path d="M12 12V21" />
@@ -66,7 +66,7 @@ export default function PromptsPage() {
 
                                         {/* Premium Badge */}
                                         {library.is_premium && (
-                                            <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-xs font-semibold text-white shadow-lg">
+                                            <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-gradient-to-r from-accent-yellow to-yellow-500 text-xs font-bold text-black shadow-lg">
                                                 PRO
                                             </div>
                                         )}
@@ -75,7 +75,7 @@ export default function PromptsPage() {
                                     {/* Content */}
                                     <div className="p-5">
                                         {/* Title */}
-                                        <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                                        <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-accent-yellow transition-colors">
                                             {library.title}
                                         </h3>
 
@@ -89,7 +89,7 @@ export default function PromptsPage() {
                                         {/* Footer with arrow */}
                                         <div className="flex items-center justify-between">
                                             <span className="text-xs text-gray-500">Виж повече</span>
-                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-500 group-hover:text-purple-400 group-hover:translate-x-1 transition-all">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-500 group-hover:text-accent-yellow group-hover:translate-x-1 transition-all">
                                                 <path d="M5 12h14M12 5l7 7-7 7" />
                                             </svg>
                                         </div>
@@ -98,7 +98,7 @@ export default function PromptsPage() {
                                     {/* Hover glow */}
                                     <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
                                         style={{
-                                            background: 'radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.15), transparent 60%)',
+                                            background: 'radial-gradient(circle at 50% 0%, rgba(255, 255, 0, 0.15), transparent 60%)',
                                         }}
                                     />
                                 </div>
@@ -112,8 +112,8 @@ export default function PromptsPage() {
                     animate={{ opacity: 1 }}
                     className="text-center py-16 rounded-2xl bg-white/[0.03] border border-white/10"
                 >
-                    <div className="w-16 h-16 rounded-2xl bg-purple-500/20 flex items-center justify-center mx-auto mb-4">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-purple-400">
+                    <div className="w-16 h-16 rounded-2xl bg-accent-yellow/20 flex items-center justify-center mx-auto mb-4">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-yellow">
                             <path d="M12 3L20 7.5V16.5L12 21L4 16.5V7.5L12 3Z" />
                             <path d="M12 12L20 7.5" />
                             <path d="M12 12V21" />

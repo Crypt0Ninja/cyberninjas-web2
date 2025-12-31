@@ -20,13 +20,11 @@ export default function NewHeader() {
                     {/* Left: Logo & Brand */}
                     <a href="/" className="flex items-center gap-3 group">
                         <img
-                            src="/landingpage-logo.png"
+                            src="/images/logo.svg"
                             alt="CyberNinjas Logo"
-                            className="h-12 w-auto transition-transform group-hover:scale-105"
+                            className="h-10 w-auto transition-transform group-hover:scale-105"
                         />
-                        <span className="text-xl font-bold tracking-tight hidden sm:block">
-                            Cyber<span className="gradient-text">Ninjas</span>
-                        </span>
+
                     </a>
 
                     {/* Center: Navigation Links (Desktop) */}
@@ -35,10 +33,10 @@ export default function NewHeader() {
                             <a
                                 key={link.href}
                                 href={link.href}
-                                className="nav-link text-base font-medium text-white/70 hover:text-purple-400 transition-colors relative group"
+                                className="nav-link text-base font-medium text-white hover:text-accent-yellow transition-colors relative group"
                             >
                                 {link.label}
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-400 group-hover:w-full transition-all duration-300" />
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-yellow group-hover:w-full transition-all duration-300" />
                             </a>
                         ))}
                     </div>
@@ -46,7 +44,7 @@ export default function NewHeader() {
                     {/* Right: Login Button */}
                     <a
                         href="/login"
-                        className="hidden md:inline-flex items-center px-6 py-3 text-sm font-semibold border border-white/20 rounded-full hover:bg-white/5 hover:border-purple-500/50 transition-all duration-300"
+                        className="hidden md:inline-flex items-center px-6 py-3 text-sm font-semibold border border-white/20 rounded-full hover:bg-white/5 hover:border-accent-yellow/50 transition-all duration-300"
                     >
                         Влез в Платформата
                     </a>
@@ -54,7 +52,7 @@ export default function NewHeader() {
                     {/* Mobile: Hamburger Menu */}
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="md:hidden p-2 text-white hover:text-purple-400 transition-colors"
+                        className="md:hidden p-2 text-white hover:text-accent-yellow transition-colors"
                         aria-label="Toggle menu"
                     >
                         {mobileMenuOpen ? (
@@ -82,14 +80,14 @@ export default function NewHeader() {
                                     key={link.href}
                                     href={link.href}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="block text-base font-medium text-white/70 hover:text-purple-400 transition-colors py-2"
+                                    className="block text-base font-medium text-white hover:text-accent-yellow transition-colors py-2"
                                 >
                                     {link.label}
                                 </a>
                             ))}
                             <a
                                 href="/login"
-                                className="block w-full text-center px-6 py-3 text-sm font-semibold border border-white/20 rounded-full hover:bg-white/5 hover:border-purple-500/50 transition-all duration-300"
+                                className="block w-full text-center px-6 py-3 text-sm font-semibold border border-white/20 rounded-full hover:bg-white/5 hover:border-accent-yellow/50 transition-all duration-300"
                             >
                                 Влез в Платформата
                             </a>

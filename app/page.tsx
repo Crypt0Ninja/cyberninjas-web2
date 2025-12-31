@@ -8,11 +8,11 @@ import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#09090b] overflow-x-hidden">
+    <main className="relative min-h-screen overflow-x-hidden">
       <NewHeader />
       <NewHero />
-      <BentoGrid1 />
       <BentoGrid2 />
+      <BentoGrid1 />
       <Footer />
     </main>
   );

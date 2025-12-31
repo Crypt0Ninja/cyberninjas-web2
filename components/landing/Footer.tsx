@@ -40,13 +40,10 @@ export default function Footer() {
                     <div className="lg:col-span-2">
                         <a href="/" className="flex items-center gap-3 mb-5">
                             <img
-                                src="/landingpage-logo.png"
+                                src="/images/logo.svg"
                                 alt="CyberNinjas Logo"
                                 className="h-10 w-auto"
                             />
-                            <span className="text-xl font-bold tracking-tight">
-                                Cyber<span className="gradient-text">Ninjas</span>
-                            </span>
                         </a>
                         <p className="text-gray-400 text-sm leading-relaxed mb-5 max-w-sm">
                             Най-голямата образователна платформа за AI в България.
@@ -61,10 +58,10 @@ export default function Footer() {
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="p-2.5 rounded-xl bg-white/5 hover:bg-purple-500/20 border border-white/10 hover:border-purple-500/50 transition-all group"
+                                    className="p-2.5 rounded-xl bg-white/5 hover:bg-accent-yellow/20 border border-white/10 hover:border-accent-yellow/50 transition-all group"
                                     aria-label={social.label}
                                 >
-                                    <social.icon className="h-4 w-4 text-gray-400 group-hover:text-purple-400 transition-colors" />
+                                    <social.icon className="h-4 w-4 text-gray-400 group-hover:text-accent-yellow transition-colors" />
                                 </a>
                             ))}
                         </div>
@@ -78,7 +75,7 @@ export default function Footer() {
                                 <li key={link.href}>
                                     <a
                                         href={link.href}
-                                        className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+                                        className="text-sm text-gray-400 hover:text-accent-yellow transition-colors"
                                     >
                                         {link.label}
                                     </a>
@@ -95,7 +92,7 @@ export default function Footer() {
                                 <li key={link.href}>
                                     <a
                                         href={link.href}
-                                        className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+                                        className="text-sm text-gray-400 hover:text-accent-yellow transition-colors"
                                     >
                                         {link.label}
                                     </a>
@@ -112,7 +109,7 @@ export default function Footer() {
                                 <li key={link.href}>
                                     <a
                                         href={link.href}
-                                        className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+                                        className="text-sm text-gray-400 hover:text-accent-yellow transition-colors"
                                     >
                                         {link.label}
                                     </a>
@@ -132,7 +129,7 @@ export default function Footer() {
                         </p>
                         <a
                             href="mailto:contact@cyberninjas.bg"
-                            className="text-sm text-gray-500 hover:text-purple-400 transition-colors flex items-center gap-2"
+                            className="text-sm text-gray-500 hover:text-accent-yellow transition-colors flex items-center gap-2"
                         >
                             <Mail className="h-4 w-4" />
                             contact@cyberninjas.bg

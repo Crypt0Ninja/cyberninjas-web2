@@ -178,13 +178,13 @@ export function BottomNav() {
                                                 className={clsx(
                                                     'flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300',
                                                     active
-                                                        ? 'bg-purple-500/20 text-white border border-purple-500/30'
+                                                        ? 'bg-accent-yellow/20 text-white border border-accent-yellow/30'
                                                         : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 border border-transparent'
                                                 )}
                                             >
                                                 <span className={clsx(
                                                     'transition-colors',
-                                                    active ? 'text-purple-400' : 'text-gray-500'
+                                                    active ? 'text-accent-yellow' : 'text-gray-500'
                                                 )}>
                                                     {item.icon}
                                                 </span>
@@ -192,7 +192,7 @@ export function BottomNav() {
                                                 {active && (
                                                     <motion.div
                                                         layoutId="moreActiveIndicator"
-                                                        className="ml-auto w-2 h-2 rounded-full bg-purple-400"
+                                                        className="ml-auto w-2 h-2 rounded-full bg-accent-yellow"
                                                         transition={{ type: 'spring', damping: 30, stiffness: 300 }}
                                                     />
                                                 )}
@@ -221,7 +221,7 @@ export function BottomNav() {
                                     'transition-all duration-300',
                                     'tap-highlight-transparent',
                                     active
-                                        ? 'text-purple-400'
+                                        ? 'text-accent-yellow'
                                         : 'text-gray-500 active:text-gray-300'
                                 )}
                             >
@@ -229,7 +229,7 @@ export function BottomNav() {
                                 {active && (
                                     <motion.div
                                         layoutId="bottomNavIndicator"
-                                        className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 rounded-b-full bg-gradient-to-r from-purple-400 to-fuchsia-400"
+                                        className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 rounded-b-full bg-gradient-to-r from-accent-yellow to-accent-yellow-hover"
                                         transition={{ type: 'spring', damping: 30, stiffness: 300 }}
                                     />
                                 )}
@@ -265,7 +265,7 @@ export function BottomNav() {
 
                                 {/* Touch feedback */}
                                 <motion.div
-                                    className="absolute inset-0 bg-purple-500/10 rounded-lg opacity-0"
+                                    className="absolute inset-0 bg-accent-yellow/10 rounded-lg opacity-0"
                                     whileTap={{ opacity: 1 }}
                                     transition={{ duration: 0.1 }}
                                 />
@@ -281,7 +281,7 @@ export function BottomNav() {
                             'transition-all duration-300',
                             'tap-highlight-transparent',
                             isMoreActive || showMoreMenu
-                                ? 'text-purple-400'
+                                ? 'text-accent-yellow'
                                 : 'text-gray-500 active:text-gray-300'
                         )}
                     >
@@ -289,7 +289,7 @@ export function BottomNav() {
                         {(isMoreActive || showMoreMenu) && (
                             <motion.div
                                 layoutId="bottomNavIndicator"
-                                className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 rounded-b-full bg-gradient-to-r from-purple-400 to-fuchsia-400"
+                                className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 rounded-b-full bg-gradient-to-r from-accent-yellow to-accent-yellow-hover"
                                 transition={{ type: 'spring', damping: 30, stiffness: 300 }}
                             />
                         )}
@@ -315,7 +315,7 @@ export function BottomNav() {
 
                         {/* Touch feedback */}
                         <motion.div
-                            className="absolute inset-0 bg-purple-500/10 rounded-lg opacity-0"
+                            className="absolute inset-0 bg-accent-yellow/10 rounded-lg opacity-0"
                             whileTap={{ opacity: 1 }}
                             transition={{ duration: 0.1 }}
                         />

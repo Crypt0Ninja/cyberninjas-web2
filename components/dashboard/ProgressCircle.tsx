@@ -52,8 +52,8 @@ export function ProgressCircle({
                 {/* Gradient definition */}
                 <defs>
                     <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#8B5CF6" />
-                        <stop offset="100%" stopColor="#C026D3" />
+                        <stop offset="0%" stopColor="#FFFF00" />
+                        <stop offset="100%" stopColor="#E6E600" />
                     </linearGradient>
                 </defs>
             </svg>

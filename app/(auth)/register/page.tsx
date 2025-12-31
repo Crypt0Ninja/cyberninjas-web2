@@ -77,7 +77,7 @@ export default function RegisterPage() {
                     </p>
                     <Link
                         href="/login"
-                        className="inline-block px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white font-semibold hover:opacity-90 transition-opacity"
+                        className="inline-block px-6 py-3 rounded-xl bg-accent-yellow hover:bg-accent-yellow-hover text-text-on-yellow font-semibold transition-colors"
                     >
                         Към вход
                     </Link>
@@ -96,9 +96,11 @@ export default function RegisterPage() {
             {/* Logo */}
             <div className="text-center mb-8">
                 <Link href="/" className="inline-block">
-                    <h1 className="text-3xl font-bold">
-                        Cyber<span className="gradient-text">Ninjas</span>
-                    </h1>
+                    <img
+                        src="/images/logo.svg"
+                        alt="CyberNinjas"
+                        className="h-12 w-auto mx-auto mb-4"
+                    />
                 </Link>
                 <p className="text-gray-400 mt-2">Създай акаунт</p>
             </div>
@@ -127,7 +129,7 @@ export default function RegisterPage() {
                             id="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-colors"
+                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent-yellow/50 focus:ring-1 focus:ring-accent-yellow/50 transition-colors"
                             placeholder="Иван Иванов"
                             required
                         />
@@ -143,7 +145,7 @@ export default function RegisterPage() {
                             id="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-colors"
+                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent-yellow/50 focus:ring-1 focus:ring-accent-yellow/50 transition-colors"
                             placeholder="your@email.com"
                             required
                         />
@@ -159,7 +161,7 @@ export default function RegisterPage() {
                             id="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-colors"
+                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent-yellow/50 focus:ring-1 focus:ring-accent-yellow/50 transition-colors"
                             placeholder="••••••••"
                             required
                             minLength={6}
@@ -176,7 +178,7 @@ export default function RegisterPage() {
                             id="confirmPassword"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
-                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-colors"
+                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent-yellow/50 focus:ring-1 focus:ring-accent-yellow/50 transition-colors"
                             placeholder="••••••••"
                             required
                         />
@@ -186,12 +188,12 @@ export default function RegisterPage() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white font-semibold hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity flex items-center justify-center gap-2"
+                        className="w-full py-3 rounded-xl bg-accent-yellow hover:bg-accent-yellow-hover text-text-on-yellow font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                     >
                         {loading ? (
                             <>
                                 <motion.div
-                                    className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                                    className="w-5 h-5 border-2 border-text-on-yellow border-t-transparent rounded-full"
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                                 />
@@ -213,7 +215,7 @@ export default function RegisterPage() {
                 {/* Login Link */}
                 <p className="text-center text-gray-400">
                     Вече имаш акаунт?{' '}
-                    <Link href="/login" className="text-purple-400 hover:text-purple-300 font-medium transition-colors">
+                    <Link href="/login" className="text-accent-yellow hover:text-accent-yellow-hover font-medium transition-colors">
                         Влез
                     </Link>
                 </p>

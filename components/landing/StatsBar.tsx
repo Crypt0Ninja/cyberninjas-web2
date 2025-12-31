@@ -40,9 +40,9 @@ export default function StatsBar() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="relative group"
                         >
-                            <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-purple-500/30 hover:bg-white/[0.05] transition-all duration-300">
+                            <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-accent-yellow/30 hover:bg-white/[0.05] transition-all duration-300">
                                 {/* Icon */}
-                                <div className="mb-4 p-3 rounded-full bg-purple-500/10 text-purple-400 group-hover:scale-110 transition-transform">
+                                <div className="mb-4 p-3 rounded-full bg-accent-yellow/10 text-accent-yellow group-hover:scale-110 transition-transform">
                                     <stat.icon className="h-6 w-6" />
                                 </div>
 

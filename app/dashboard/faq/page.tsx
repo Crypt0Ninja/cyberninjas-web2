@@ -133,7 +133,7 @@ export default function FAQPage() {
                 className="text-center mb-12"
             >
                 <div className="flex items-center justify-center gap-3 mb-4">
-                    <HelpCircle className="w-10 h-10 text-purple-400" />
+                    <HelpCircle className="w-10 h-10 text-accent-yellow" />
                     <h1 className="text-4xl md:text-5xl font-bold">
                         Често Задавани <span className="gradient-text">Въпроси</span>
                     </h1>
@@ -157,7 +157,7 @@ export default function FAQPage() {
                             placeholder="Търси въпрос..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full px-6 py-4 pl-12 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 transition-all duration-300"
+                            className="w-full px-6 py-4 pl-12 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent-yellow/50 transition-all duration-300"
                         />
                         <HelpCircle className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                     </div>
@@ -211,7 +211,7 @@ export default function FAQPage() {
                                     transition={{ delay: index * 0.05 }}
                                 >
                                     {/* FAQ Card */}
-                                    <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-lg hover:shadow-purple-500/10">
+                                    <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-lg hover:shadow-accent-yellow/10">
                                         {/* Question */}
                                         <button
                                             onClick={() => toggleFAQ(faq.id)}
@@ -225,7 +225,7 @@ export default function FAQPage() {
                                                 }}
                                                 transition={{ duration: 0.3 }}
                                                 className={`
-                                                    p-3 rounded-xl bg-gradient-to-br from-${category?.color}-500 to-purple-600
+                                                    p-3 rounded-xl bg-gradient-to-br from-${category?.color}-500 to-amber-600
                                                     text-white flex-shrink-0
                                                 `}
                                             >
@@ -244,7 +244,7 @@ export default function FAQPage() {
                                                 animate={{ rotate: isOpen ? 180 : 0 }}
                                                 transition={{ duration: 0.3 }}
                                             >
-                                                <ChevronDown className="w-6 h-6 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
+                                                <ChevronDown className="w-6 h-6 text-gray-400 group-hover:text-accent-yellow transition-colors duration-300" />
                                             </motion.div>
                                         </button>
 
@@ -275,7 +275,7 @@ export default function FAQPage() {
                                                 initial={{ scaleX: 0 }}
                                                 animate={{ scaleX: 1 }}
                                                 exit={{ scaleX: 0 }}
-                                                className={`h-1 bg-gradient-to-r from-${category?.color}-500 to-purple-500`}
+                                                className={`h-1 bg-gradient-to-r from-${category?.color}-500 to-accent-yellow`}
                                             />
                                         )}
                                     </div>
@@ -307,7 +307,7 @@ export default function FAQPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
-                    className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-purple-500/10 to-fuchsia-500/10 border border-purple-500/20 text-center"
+                    className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-accent-yellow/10 to-amber-500/10 border border-accent-yellow/20 text-center"
                 >
                     <h3 className="text-2xl font-bold text-white mb-3">
                         Не намери отговор на въпроса си?
@@ -317,7 +317,7 @@ export default function FAQPage() {
                     </p>
                     <motion.a
                         href="mailto:support@cyberninjas.net"
-                        className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
+                        className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-accent-yellow to-accent-yellow-hover text-text-on-yellow font-medium hover:shadow-lg hover:shadow-accent-yellow/50 transition-all duration-300"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >

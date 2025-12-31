@@ -10,15 +10,28 @@ module.exports = {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
-        background: "#09090B",
+        background: {
+          DEFAULT: "#121212",
+          surface: "#1A1A1A",
+          elevated: "#242424",
+        },
         surface: {
           DEFAULT: "rgba(255, 255, 255, 0.03)",
           hover: "rgba(255, 255, 255, 0.06)",
         },
         accent: {
-          purple: "#8B5CF6",
-          violet: "#A855F7",
-          fuchsia: "#C026D3",
+          yellow: "#FFFF00",
+          "yellow-hover": "#E6E600",
+          "yellow-muted": "#CCCC00",
+        },
+        text: {
+          primary: "#E0E0E0",
+          secondary: "#A1A1AA",
+          "on-yellow": "#18181B",
+        },
+        border: {
+          subtle: "rgba(255, 255, 255, 0.1)",
+          yellow: "rgba(253, 176, 34, 0.3)",
         },
       },
       animation: {

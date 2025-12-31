@@ -122,22 +122,16 @@ export default function PromptPlayground() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                    {/* Layered card effect - outer border/shadow */}
-                    <div className="absolute -inset-1 bg-gradient-to-br from-purple-600/40 via-fuchsia-600/40 to-purple-600/40 rounded-3xl blur-md" />
-                    <div className="absolute -inset-0.5 bg-gradient-to-br from-purple-500/60 via-fuchsia-500/60 to-purple-500/60 rounded-3xl" />
-
-                    {/* Multi-layer Glow effect */}
-                    <div className="absolute -inset-2 bg-gradient-to-br from-purple-600 via-fuchsia-600 to-purple-600 rounded-3xl blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
-                    <div className="absolute -inset-1 bg-gradient-to-br from-purple-500 via-fuchsia-500 to-purple-500 rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
-                    <div className="absolute -inset-0.5 bg-gradient-to-br from-purple-400 via-fuchsia-400 to-purple-400 rounded-3xl blur-sm opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
+                    {/* Single border - flat design */}
+                    <div className="absolute -inset-0.5 bg-accent-yellow/20 rounded-3xl" />
 
                     {/* Card */}
-                    <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl border-2 border-purple-500/40 group-hover:border-purple-400/60 rounded-3xl p-6 sm:p-8 space-y-6 transition-all duration-300">
+                    <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl border-2 border-accent-yellow/40 hover:border-accent-yellow/60 rounded-3xl p-6 sm:p-8 space-y-6 transition-all duration-300">
                         {/* Dropdown */}
                         <div className="relative">
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className="w-full flex items-center justify-between px-5 py-3.5 bg-black/60 border-2 border-purple-500/50 rounded-xl hover:border-fuchsia-500/70 hover:bg-black/80 transition-all duration-300 shadow-lg shadow-purple-500/20"
+                                className="w-full flex items-center justify-between px-5 py-3.5 bg-black/60 border-2 border-accent-yellow/50 rounded-xl hover:border-accent-yellow/70 hover:bg-black/80 transition-all duration-300 shadow-lg shadow-accent-yellow/20"
                             >
                                 <span className="text-white font-medium">
                                     {selectedPrompt.category}: {selectedPrompt.title}
@@ -147,7 +141,7 @@ export default function PromptPlayground() {
                                     height="20"
                                     viewBox="0 0 24 24"
                                     fill="none"
-                                    className="text-fuchsia-400"
+                                    className="text-accent-yellow"
                                     animate={{ rotate: isOpen ? 180 : 0 }}
                                     transition={{ duration: 0.3 }}
                                 >
@@ -165,7 +159,7 @@ export default function PromptPlayground() {
                             <AnimatePresence>
                                 {isOpen && (
                                     <motion.div
-                                        className="absolute top-full left-0 right-0 mt-2 bg-black/95 backdrop-blur-xl border-2 border-purple-500/50 rounded-xl overflow-hidden z-10 shadow-2xl shadow-purple-500/30"
+                                        className="absolute top-full left-0 right-0 mt-2 bg-black/95 backdrop-blur-xl border-2 border-accent-yellow/50 rounded-xl overflow-hidden z-10 shadow-2xl shadow-accent-yellow/30"
                                         initial={{ opacity: 0, y: -10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -10 }}
@@ -178,9 +172,9 @@ export default function PromptPlayground() {
                                                     setSelectedPrompt(prompt);
                                                     setIsOpen(false);
                                                 }}
-                                                className="w-full text-left px-5 py-3 hover:bg-purple-600/30 transition-colors duration-200 border-b border-purple-500/20 last:border-0"
+                                                className="w-full text-left px-5 py-3 hover:bg-accent-yellow/30 transition-colors duration-200 border-b border-accent-yellow/20 last:border-0"
                                             >
-                                                <div className="text-fuchsia-300 text-sm font-medium">
+                                                <div className="text-accent-yellow text-sm font-medium">
                                                     {prompt.category}
                                                 </div>
                                                 <div className="text-white">{prompt.title}</div>
@@ -192,12 +186,12 @@ export default function PromptPlayground() {
                         </div>
 
                         {/* Prompt Preview with Syntax Highlighting */}
-                        <div className="relative bg-black/90 rounded-xl p-6 border-2 border-purple-500/30 shadow-inner">
+                        <div className="relative bg-black/90 rounded-xl p-6 border-2 border-accent-yellow/30 shadow-inner">
                             <pre className="text-sm sm:text-base font-mono leading-relaxed whitespace-pre-wrap overflow-x-auto">
                                 {selectedPrompt.prompt.split('\n').map((line, i) => {
                                     // Syntax highlighting logic
                                     if (line.includes('ДЕЙСТВАЙ КАТО:') || line.includes('ACT AS:')) {
-                                        return <div key={i} className="text-cyan-400 font-semibold">{line}</div>;
+                                        return <div key={i} className="text-accent-yellow font-semibold">{line}</div>;
                                     } else if (line.includes('КОНТЕКСТ:') || line.includes('CONTEXT:') ||
                                         line.includes('ЦЕЛ:') || line.includes('OBJECTIVE:') ||
                                         line.includes('ОГРАНИЧЕНИЯ:') || line.includes('CONSTRAINTS:') ||
@@ -206,11 +200,11 @@ export default function PromptPlayground() {
                                         line.includes('ТОН:') || line.includes('TONE:') ||
                                         line.includes('ФОРМАТ НА ОТГОВОР:') || line.includes('OUTPUT FORMAT:') ||
                                         line.includes('АНАЛИТИЧНА РАМКА:') || line.includes('ANALYSIS FRAMEWORK:')) {
-                                        return <div key={i} className="text-purple-400 font-semibold">{line}</div>;
+                                        return <div key={i} className="text-accent-yellow font-semibold">{line}</div>;
                                     } else if (line.trim().startsWith('-') || /^\d+\./.test(line.trim())) {
                                         return <div key={i} className="text-gray-300">{line}</div>;
                                     } else if (line.includes('[') && line.includes(']')) {
-                                        return <div key={i} className="text-fuchsia-300">{line}</div>;
+                                        return <div key={i} className="text-accent-yellow-muted">{line}</div>;
                                     } else if (line.trim() === '') {
                                         return <div key={i}>&nbsp;</div>;
                                     } else {
@@ -225,7 +219,7 @@ export default function PromptPlayground() {
                             {/* Copy Button */}
                             <button
                                 onClick={handleCopy}
-                                className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-purple-700/40 to-purple-600/40 hover:from-purple-600/60 hover:to-purple-500/60 border-2 border-purple-500/60 rounded-xl transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-purple-400/50 hover:scale-[1.02]"
+                                className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-accent-yellow/40 to-accent-yellow-hover/40 hover:from-accent-yellow/60 hover:to-accent-yellow-hover/60 border-2 border-accent-yellow/60 rounded-xl transition-all duration-300 shadow-lg shadow-accent-yellow/30 hover:shadow-accent-yellow/50 hover:scale-[1.02]"
                             >
                                 <AnimatePresence mode="wait">
                                     {copied ? (
@@ -247,7 +241,7 @@ export default function PromptPlayground() {
                                             exit={{ scale: 0 }}
                                             className="flex items-center gap-2"
                                         >
-                                            <Copy className="w-5 h-5 text-purple-200" />
+                                            <Copy className="w-5 h-5 text-accent-yellow" />
                                             <span className="text-white font-semibold">Копирай промпт</span>
                                         </motion.div>
                                     )}
@@ -257,7 +251,7 @@ export default function PromptPlayground() {
                             {/* Login CTA */}
                             <a
                                 href="/login"
-                                className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 rounded-xl font-semibold text-white shadow-lg shadow-fuchsia-500/50 hover:shadow-fuchsia-400/60 transition-all duration-300 hover:scale-[1.02] border-2 border-fuchsia-400/30"
+                                className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-accent-yellow to-accent-yellow-hover hover:from-accent-yellow hover:to-accent-yellow-hover rounded-xl font-semibold text-white shadow-lg shadow-accent-yellow/50 hover:shadow-accent-yellow/60 transition-all duration-300 hover:scale-[1.02] border-2 border-accent-yellow/30"
                             >
                                 Влез за пълен достъп →
                             </a>
